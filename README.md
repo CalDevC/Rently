@@ -15,7 +15,7 @@
 2. Add ALL members of your team to this repository. For it to count, they must ACCEPT the invite.
 
 3. Fill out the table below
-
+A CHANGE TO THE README
 
 | Student Name | Student Email | GitHub Username |
 |    :---:     |     :---:     |     :---:       |
