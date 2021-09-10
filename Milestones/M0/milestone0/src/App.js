@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
+  function cancelHandler(props) {
+    props.onCancel();
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>About Me</h1>
+      <p>Member1, Member2, Member3, Member4, Member5</p>
+      <button className="btn btn--alt" onClick={cancelHandler}>
+        Member1
+      </button>
+      <button className="btn btn--alt" onClick={cancelHandler}>
+        Member2
+      </button>
+      <button className="btn btn--alt" onClick={cancelHandler}>
+        Member3
+      </button>
+      <button className="btn btn--alt" onClick={cancelHandler}>
+        Member4
+      </button>
+      <button className="btn btn--alt" onClick={cancelHandler}>
+        Member5
+      </button>
     </div>
   );
 }
