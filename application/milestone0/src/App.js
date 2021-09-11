@@ -1,17 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React from "react";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1 className="About_me"> About Me </h1>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://ibb.co/Qf8hmfz"
           target="_blank"
           rel="noopener noreferrer"
         >
