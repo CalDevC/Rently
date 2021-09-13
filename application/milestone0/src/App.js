@@ -1,25 +1,26 @@
-import logo from "./logo.svg";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import React from "react";
+import YuhangLee from "./AboutMePage/YuhangLee";
+import AboutMe from "./AboutMePage/AboutMe";
+import MainNavigation from "./AboutMePage/MainNavigation";
+import ChuChengSitu from "./AboutMePage/ChuChengSitu";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1 className="About_me"> About Me </h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://ibb.co/Qf8hmfz"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainNavigation className="main" />
+      <Switch>
+        <Route path="/" exact={true}>
+          <AboutMe className="about" />
+        </Route>
+        <Route path="/YuHang-Lee">
+          <YuhangLee className="yuhang" />
+        </Route>
+        <Route path="/ChuChengSitu">
+          <ChuChengSitu />
+        </Route>
+      </Switch>
     </div>
   );
 }
