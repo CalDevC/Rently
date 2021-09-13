@@ -16,7 +16,10 @@ function MainNavigation() {
             <Link to="/Yuhang-Lee">Yuhang-Lee</Link>
           </li>
           <li>
-            <Link to="/ChuChengSitu">ChuChengSitu</Link>
+            <Link to="/ChuCheng-Situ">ChuCheng-Situ</Link>
+          </li>
+          <li>
+            <Link to="/Benjamin-McCullough">Benjamin-McCullough</Link>
           </li>
         </ul>
       </nav>
