@@ -34,6 +34,10 @@ function App() {
           <ChaseAlexander />
         </Route>
 
+        <Route path="/Lauren-Barer">
+          <LaurenBarer />
+        </Route>
+
       </Switch>
     </div>
   );
