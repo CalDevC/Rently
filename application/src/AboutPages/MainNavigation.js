@@ -22,6 +22,9 @@ function MainNavigation() {
           <li>
             <Link to="/Benjamin-McCullough">Benjamin-McCullough</Link>
           </li>
+          <li>
+            <Link to="/Chase-Alexander">Chase Alexander</Link>
+          </li>
         </ul>
       </nav>
     </header>
