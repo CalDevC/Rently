@@ -1,4 +1,6 @@
+import React from "react";
 import classes from "./YuhangLee.module.css";
+
 function YuhangLee() {
   return (
     <div>
