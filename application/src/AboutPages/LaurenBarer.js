@@ -6,10 +6,8 @@ function LaurenBarer(){
         <div>
             <h1 className={classes.h1}>Name : Lauren Barer</h1>
             <p className={classes.p}>Role: Scrum Master, Cloud</p>
-            <div className={classes.circleImgContainer}>
                 <img src={require("../images/Lauren.jpg").default} width={200} alt="" />
             </div>
-        </div> 
     );
 }
 
