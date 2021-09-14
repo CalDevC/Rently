@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./BenM.module.css";
+import classes from "./profiles.module.css";
 // import BensPic from "./images/BensPic.jpeg";
 
 const BenM = () => {

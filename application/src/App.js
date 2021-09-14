@@ -1,11 +1,11 @@
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import React from "react";
-import YuhangLee from "./AboutMePage/YuhangLee";
-import AboutMe from "./AboutMePage/AboutMe";
-import MainNavigation from "./AboutMePage/MainNavigation";
-import ChuChengSitu from "./AboutMePage/ChuChengSitu";
-import BenM from "./AboutMePage/BenM";
+import YuhangLee from "./AboutPages/YuhangLee";
+import AboutMe from "./AboutPages/AboutMe";
+import MainNavigation from "./AboutPages/MainNavigation";
+import ChuChengSitu from "./AboutPages/ChuChengSitu";
+import BenM from "./AboutPages/BenM";
 
 function App() {
   return (

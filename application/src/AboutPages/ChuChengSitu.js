@@ -1,5 +1,6 @@
 import React from "react";
-import classes from "./ChuChengSitu.module.css";
+import classes from "./profiles.module.css";
+
 function ChuChengSitu() {
   return (
     <div>

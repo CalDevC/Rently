@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./YuhangLee.module.css";
+import classes from "./profiles.module.css";
 
 function YuhangLee() {
   return (
