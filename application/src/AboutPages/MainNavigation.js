@@ -5,12 +5,11 @@ import classes from "./MainNavigation.module.css";
 function MainNavigation() {
   return (
     <header>
-      <div>About Me</div>
-      <h2>Team 1 </h2>
-      <p> CSC 648 Software Engineering </p>
-      <p> Project Rental Application </p>
-      <p>Professor Isabel</p>
-      <p>Communication : Discord, Weekly Meeting Wednesday 4pm</p>
+      <h1>About Me</h1>
+      <p> CSC 648 Software Engineering SFSU </p>
+      <p> Fall 2021 </p>
+      <p> Section 1 </p>
+      <p>Team 1</p>
       <nav>
         <ul className={classes.ul}>
           <li>
@@ -24,6 +23,9 @@ function MainNavigation() {
           </li>
           <li>
             <Link to="/Chase-Alexander">Chase Alexander</Link>
+          </li>
+          <li>
+            <Link to="/Lauren-Barer">Lauren Barer</Link>
           </li>
         </ul>
       </nav>

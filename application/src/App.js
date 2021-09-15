@@ -14,7 +14,6 @@ function App() {
     <div className="App">
       <MainNavigation className="main" />
       <Switch>
-
         <Route path="/" exact={true}>
           <AboutMe className="about" />
         </Route>
@@ -38,7 +37,6 @@ function App() {
         <Route path="/Lauren-Barer">
           <LaurenBarer />
         </Route>
-
       </Switch>
     </div>
   );
