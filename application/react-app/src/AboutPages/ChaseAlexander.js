@@ -1,16 +1,30 @@
-import React from "react";
+import React, { Component } from "react";
 import classes from "./profiles.module.css";
 
-function ChaseAlexander(){
+class ChaseAlexander extends Component{
+  state = {
+    profile: {}
+  }
+
+  componentDidMount(){
+    //retrieve profile
+    fetch('/api/chase-alexander')
+    .then(res => res.json())
+    .then(res => this.setState({ profile: res }));
+  }
+
+  render(){
     return(
-        <div>
-            <h1>Chase Alexander</h1>
-            <p className={classes.p}>Role: Team lead, full stack support</p>
-            <div className={classes.circleImgContainer}>
-                <img src={require("../images/Chase.jpg").default} width={200} alt="" />
-            </div>
-        </div> 
+      <div>
+          <h1>{this.state.profile.name}</h1>
+          <p className={classes.p}>Role: {this.state.profile.role}</p>
+          <div className={classes.circleImgContainer}>
+            
+            <img src={this.state.profile.img} width={200} alt="" />
+          </div>
+      </div>
     );
+  }
 }
 
 export default ChaseAlexander;

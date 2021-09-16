@@ -15,7 +15,6 @@ function App() {
       <MainNavigation className="main" />
       <Switch>
         <Route path="/" exact={true}>
-          <AboutMe className="about" />
         </Route>
 
         <Route path="/YuHang-Lee">

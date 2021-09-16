@@ -45,21 +45,11 @@ import classes from "./MainNavigation.module.css";
 
 class MainNavigation extends Component{
   
-  state = {
-    data: null
-  }
-
-  componentDidMount(){
-    fetch('/api')
-    .then(res => res.json())
-    .then(res => this.setState({ data: res.express }));
-  }
-
   render(){
     
     return (
       <header>
-        <h1>{this.state.data}</h1>
+        <h1>About Me</h1>
         <p> CSC 648 Software Engineering SFSU </p>
         <p> Fall 2021 </p>
         <p> Section 1 </p>
@@ -73,10 +63,10 @@ class MainNavigation extends Component{
               <Link to="/ChuCheng-Situ">ChuCheng-Situ</Link>
             </li>
             <li>
-              <Link to="/Benjamin-McCullough">Benjamin-McCullough</Link>
+              <Link to="/Benjamin-McCullough">Benjamin McCullough</Link>
             </li>
             <li>
-              <Link to="/Chase-Alexander">Chase Alexander</Link>
+              <Link to="/Chase-alexander">Chase Alexander</Link>
             </li>
             <li>
               <Link to="/Lauren-Barer">Lauren Barer</Link>
