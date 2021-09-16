@@ -6,7 +6,7 @@ function YuhangLee() {
     <div>
       <h1 className={classes.h1}>Name : Yu Hang Lee</h1>
       <p className={classes.p}>Role : Front End Lead</p>
-      <img src={require("../images/Member1.jpg").default} width={200} alt="" />
+      <img src="images/Member1.jpg" width={200} alt="" />
     </div>
   );
 }

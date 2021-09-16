@@ -7,7 +7,7 @@ const BenM = () => {
     <div>
       <h1 className={classes.h1}>Name : Benjamin McCullough</h1>
       <p className={classes.p}>Role In Team 1: GitHub Master</p>
-      <img src={require("../images/BensPic.jpg").default} width={200} alt="" />
+      <img src="images/BensPic.jpg" width={200} alt="" />
     </div>
   );
 };
