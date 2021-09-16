@@ -39,30 +39,27 @@
 
 
 
-import React from "react";
+import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 
-class MainNavigation extends React.Component{
+class MainNavigation extends Component{
   
   state = {
     data: null
   }
 
-  getData(){
-    fetch('/')
-    .then(res => {
-      return res.text()
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+  componentDidMount(){
+    fetch('/api')
+    .then(res => res.json())
+    .then(res => this.setState({ data: res.express }));
   }
 
   render(){
-    this.getData();
+    
     return (
       <header>
-        <h1>About Me {this.state.data}</h1>
+        <h1>{this.state.data}</h1>
         <p> CSC 648 Software Engineering SFSU </p>
         <p> Fall 2021 </p>
         <p> Section 1 </p>
