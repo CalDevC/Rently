@@ -1,0 +1,19 @@
+.h1 {
+    font-size: 2rem;
+}
+
+.p {
+font-size: 1rem;
+}
+
+.circleImgContainer{
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.circleImgContainer img{
+    margin: -10px 0px 0px -20px;
+}
