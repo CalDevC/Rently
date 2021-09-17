@@ -1,0 +1,24 @@
+Below is a list of technologies used in Team01's software stack:
+
+Server Host: AWS EC2 - m6g.medium, 4 GB of Memory, 1 vCPU, EBS only, 64-bit Arm platform Operating System: Ubuntu 16.04 
+Database: Amazon RDS/MySQL
+Web Server: NGINX 1.12.2
+Server-side Language: JS
+Web Application Framework: Express
+IDE: VS Code
+
+Member's familiarity with JS on a scale of 1 to 5, with 5 being very familiar and 1 being never used it.
+
+Chase: 3.5
+Yu Hang: 3
+Chu Cheng: 3.5
+Lauren: 3.5
+Ben: 3
+
+Based on our familiarity, we set up the following study plan:
+
+Chu Cheng will study how to retrieve and send information to the database on Friday
+Yu Hang will spend 1hr every day reviewing React
+Lauren will study how to use NGINX and research more on how to use EC2 on Mon and Wed
+Chase will study React and how to connect backend/frontend on Tue and Thur
+Ben will study up on React and Express on Tue and Thur
