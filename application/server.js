@@ -35,7 +35,7 @@ app.get('/api/chucheng-situ', (req,res) => {
     res.send({
         name: "Chu Cheng Situ",
         role: "Backend Lead",
-        img: "../images/Chu.jpg"
+        img: "images/Chu.jpg"
     })
 })
 
