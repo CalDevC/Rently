@@ -57,10 +57,10 @@ class MainNavigation extends Component{
         <nav>
           <ul className={classes.ul}>
             <li>
-              <Link to="/Yuhang-Lee">Yuhang-Lee</Link>
+              <Link to="/Yuhang-Lee">Yuhang Lee</Link>
             </li>
             <li>
-              <Link to="/ChuCheng-Situ">ChuCheng-Situ</Link>
+              <Link to="/ChuCheng-Situ">ChuCheng Situ</Link>
             </li>
             <li>
               <Link to="/Benjamin-McCullough">Benjamin McCullough</Link>
