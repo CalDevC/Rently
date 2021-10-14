@@ -28,7 +28,7 @@ function HomePage() {
         </div>
         <div className={classes.control}>
           <label htmlFor="Password">Password:</label>
-          <input type="text" required id="username" ref={passwordInputRef} />
+          <input type="text" required id="password" ref={passwordInputRef} />
         </div>
         <div>
           <button>Login</button>
