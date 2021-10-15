@@ -13,7 +13,8 @@ import HomePage from "./TestHomePage/HomePage";
 function App() {
   return (
     <div className="App">
-      <MainNavigation className="main" />
+      <HomePage />
+      {/* <MainNavigation className="main" />
       <Switch>
         <Route path="/" exact={true}></Route>
 
@@ -38,8 +39,8 @@ function App() {
         </Route>
         <Route path="/HomePage">
           <HomePage />
-        </Route>
-      </Switch>
+        </Route> */}
+      {/* </Switch> */}
     </div>
   );
 }
