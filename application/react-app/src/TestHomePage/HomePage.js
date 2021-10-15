@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import React from "react";
-import Card from "./Card";
 import classes from "./HomePage.module.css";
 
 function HomePage() {
@@ -20,21 +19,30 @@ function HomePage() {
     console.log(userData);
   }
   return (
-    <Card>
-      <form className={classes.form} onSubmit={submitHandler}>
-        <div className={classes.control}>
-          <label htmlFor="Username">Username:</label>
-          <input type="text" required id="username" ref={usernameInputRef} />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="Password">Password:</label>
-          <input type="text" required id="password" ref={passwordInputRef} />
-        </div>
-        <div>
-          <button>Login</button>
-        </div>
-      </form>
-    </Card>
+    <form className={classes.form} onSubmit={submitHandler}>
+      <h1>Rently</h1>
+      <div className={classes.control}>
+        <label htmlFor="Username">Username:</label>
+        <input type="text" required id="username" ref={usernameInputRef} />
+      </div>
+      <div className={classes.control}>
+        <label htmlFor="Password">Password:</label>
+        <input type="text" required id="username" ref={passwordInputRef} />
+      </div>
+      <div>
+        <button>Log in</button>
+      </div>
+      <div>
+        <button>Retrieve</button>
+      </div>
+      <h3> Registered User:</h3>
+      <h3> Address: </h3>
+      <h3> Password: </h3>
+      <h3>Time:</h3>
+      <h3>Price & Penalty:</h3>
+      <h3>Location:</h3>
+      <h3>Equipment Category:</h3>
+    </form>
   );
 }
 
