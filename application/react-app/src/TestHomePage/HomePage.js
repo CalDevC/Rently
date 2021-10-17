@@ -2,22 +2,17 @@ import { useRef } from "react";
 import React from "react";
 import classes from "./HomePage.module.css";
 
-function HomePage() {
-  const usernameInputRef = useRef();
-  const passwordInputRef = useRef();
-  function submitHandler(event) {
-    event.preventDefault();
-
-    const enteredUsername = usernameInputRef.current.value;
-    const enteredPassword = passwordInputRef.current.value;
-
-    const userData = {
-      username: enteredUsername,
-      password: enteredPassword,
-    };
-
-    console.log(userData);
+class Home extends Component {
+  state = {
+    home: {}
   }
+
+  componentDidMount(){
+    fetch('/api/homepage')
+    .then(res => res.json())
+    .then(res => this.setState({ home: res}));
+  }
+  render(){
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <h1>Rently</h1>
@@ -44,6 +39,24 @@ function HomePage() {
       <h3>Equipment Category:</h3>
     </form>
   );
+  }
 }
 
+function HomePage() {
+  const usernameInputRef = useRef();
+  const passwordInputRef = useRef();
+  function submitHandler(event) {
+    event.preventDefault();
+
+    const enteredUsername = usernameInputRef.current.value;
+    const enteredPassword = passwordInputRef.current.value;
+
+    const userData = {
+      username: enteredUsername,
+      password: enteredPassword,
+    };
+
+    console.log(userData);
+    }
+  }
 export default HomePage;

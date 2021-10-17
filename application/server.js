@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require('express');
 const app = express();
+const mysql = require('mysql');
 const port = process.env.PORT || 5000;
 
 app.use(express.static(path.join(__dirname, 'build')));
@@ -10,6 +11,23 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 }
+
+// Create Database Connection
+const db = mysql.createConnection({
+  host     : 'database-1.c0xp0u07woyj.us-west-1.rds.amazonaws.com',
+  user     : 'admin',
+  password : '918330561',
+  database : 'database1',
+});
+
+connection.connect(function(err) {
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
+ 
+  console.log('connected as id ' + connection.threadId);
+});
 
 // This displays message that the server running and listening to specified port
 app.listen(port, () => console.log(`Listening on port ${port}`));
