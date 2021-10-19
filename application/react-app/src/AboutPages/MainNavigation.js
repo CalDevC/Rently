@@ -35,12 +35,18 @@
 
 // export default MainNavigation;
 
-import React, { Component } from "react";
+
+
+
+
+import React, {Component} from "react";
 import { Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 
-class MainNavigation extends Component {
-  render() {
+class MainNavigation extends Component{
+  
+  render(){
+    
     return (
       <header>
         <h1>About Me</h1>
@@ -64,9 +70,6 @@ class MainNavigation extends Component {
             </li>
             <li>
               <Link to="/Lauren-Barer">Lauren Barer</Link>
-            </li>
-            <li>
-              <Link to="/HomePage">Home Page</Link>
             </li>
           </ul>
         </nav>

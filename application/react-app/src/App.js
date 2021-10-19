@@ -8,15 +8,14 @@ import ChuChengSitu from "./AboutPages/ChuChengSitu";
 import BenM from "./AboutPages/BenM";
 import ChaseAlexander from "./AboutPages/ChaseAlexander";
 import LaurenBarer from "./AboutPages/LaurenBarer";
-import HomePage from "./TestHomePage/HomePage";
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
-      {/* <MainNavigation className="main" />
+      <MainNavigation className="main" />
       <Switch>
-        <Route path="/" exact={true}></Route>
+        <Route path="/" exact={true}>
+        </Route>
 
         <Route path="/YuHang-Lee">
           <YuhangLee className="yuhang" />
@@ -37,10 +36,7 @@ function App() {
         <Route path="/Lauren-Barer">
           <LaurenBarer />
         </Route>
-        <Route path="/HomePage">
-          <HomePage />
-        </Route> */}
-      {/* </Switch> */}
+      </Switch>
     </div>
   );
 }
