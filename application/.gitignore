@@ -32,3 +32,4 @@ yarn-error.log*
 .vs/*
 .idea/*
 
+#End of ignore page
