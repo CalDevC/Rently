@@ -33,6 +33,7 @@ class HomePage extends Component {
   }
 
   render() {
+    let data = this.state.data;
     return (
       <form className={classes.form} onSubmit={this.submitHandler}>
         <h1>Rently</h1>
@@ -61,14 +62,11 @@ class HomePage extends Component {
           <button>Retrieve</button>
         </div>
         <h3> Registered User</h3>
-        <h4> Username : {this.state.data.username} </h4>
-        <h4> Address : {this.state.data.address} </h4>
-        <h4> Password : {this.state.data.password}</h4>
-        {/* <h3>Time: </h3> */}
-        {/* <h3>Price & Penalty:</h3> */}
-        {/* <h3>Location: </h3> */}
-        <h4>Date of Birth : {this.state.data.dob}</h4>
-        <h3>Equipment Category :{this.state.data.equipmentCategory}</h3>
+        <h4> Username : {data.username} </h4>
+        <h4> Address : {data.address} </h4>
+        <h4> Password : {data.password}</h4>
+        <h4>Date of Birth : {data.dob}</h4>
+        <h3>Equipment Category :{data.equipmentCategory}</h3>
       </form>
     );
   }
