@@ -11,7 +11,15 @@ class HomePage extends Component {
     this.state = {
       username: "test",
       equipmentCategory: "outdoor",
-      data: {},
+      data: {
+        username: "",
+        email: "",
+        password: "",
+        dob: "",
+        address: "",
+        zipCode: "",
+        equipmentCategory: ""
+      },
     };
   }
 
@@ -57,7 +65,7 @@ class HomePage extends Component {
         <h4> Username : {data.username} </h4>
         <h4> Email : {data.email} </h4>
         <h4> Password : {data.password}</h4>
-        <h4>Date of Birth : {data.dob}</h4>
+        <h4>Date of Birth : {data.dob.split('T')[0]}</h4>
         <h4> Address : {data.address} </h4>
         <h4> Zip Code : {data.zipCode} </h4>
         <br />
