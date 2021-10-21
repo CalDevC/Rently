@@ -62,7 +62,7 @@ class HomePage extends Component {
         <h4> Zip Code : {data.zipCode} </h4>
         <br />
         <h3> Posting Category </h3>
-        <h4>Equipment Category :{data.equipmentCategory}</h4>
+        <h4>Equipment Category : {data.equipmentCategory}</h4>
       </form>
     );
   }
