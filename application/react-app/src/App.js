@@ -12,7 +12,10 @@ import LaurenBarer from "./AboutPages/LaurenBarer";
 function App() {
   return (
     <div className="App">
-      <MainNavigation className="main" />
+      <HomePage />
+      {/* ===== ABOUT PAGES ===== */
+      
+      /* <MainNavigation className="main" />
       <Switch>
         <Route path="/" exact={true}>
         </Route>
@@ -36,7 +39,10 @@ function App() {
         <Route path="/Lauren-Barer">
           <LaurenBarer />
         </Route>
-      </Switch>
+        <Route path="/HomePage">
+          <HomePage />
+        </Route>
+      </Switch> */}
     </div>
   );
 }
