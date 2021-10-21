@@ -14,7 +14,9 @@ function App() {
   return (
     <div className="App">
       <HomePage />
-      {/* <MainNavigation className="main" />
+      {/* ===== ABOUT PAGES ===== */
+      
+      /* <MainNavigation className="main" />
       <Switch>
         <Route path="/" exact={true}></Route>
 
@@ -39,8 +41,8 @@ function App() {
         </Route>
         <Route path="/HomePage">
           <HomePage />
-        </Route> */}
-      {/* </Switch> */}
+        </Route>
+      </Switch> */}
     </div>
   );
 }
