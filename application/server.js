@@ -104,6 +104,4 @@ app.get("/api/homepage", (req, res) => {
 
   });
 
-  connection.end();
-
 });
