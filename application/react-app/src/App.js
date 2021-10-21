@@ -8,6 +8,7 @@ import ChuChengSitu from "./AboutPages/ChuChengSitu";
 import BenM from "./AboutPages/BenM";
 import ChaseAlexander from "./AboutPages/ChaseAlexander";
 import LaurenBarer from "./AboutPages/LaurenBarer";
+import HomePage from "./TestHomePage/HomePage"
 
 function App() {
   return (
