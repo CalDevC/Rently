@@ -60,6 +60,9 @@ class MainNavigation extends Component{
             <li>
               <Link to="/LoginPage">Login Page</Link>
             </li>
+            <li>
+              <Link to="/Registration">Create An Account</Link>
+            </li>
           </ul>
         </nav>
       </header>

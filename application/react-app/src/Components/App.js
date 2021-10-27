@@ -7,6 +7,7 @@ import AboutNav from "./AboutNav"
 
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
+import Registration from "./Registration";
 
 function App() {
   return (
@@ -53,6 +54,10 @@ function App() {
 
         <Route path="/LoginPage" exact={true}>
           <LoginPage className="LoginPage" />
+        </Route>
+        
+        <Route path="/Registration" exact={true}>
+          <Registration className="Registration" />
         </Route>
 
       </Switch>
