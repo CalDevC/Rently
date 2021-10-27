@@ -8,7 +8,7 @@ class YuhangLee extends Component {
 
   componentDidMount() {
     //retrieve profile
-    fetch("/api/yuhang-lee")
+    fetch("/api/about/yuhang-lee")
       .then((res) => res.json())
       .then((res) => this.setState({ profile: res }));
   }

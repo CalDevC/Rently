@@ -14,36 +14,36 @@ import LoginPage from "./Milestone3/LoginPage";
 function App() {
   return (
     <div className="App">
-      <HomePage />
-      {/* ===== ABOUT PAGES ===== */
-      /* <MainNavigation className="main" />
+      {/* ===== ABOUT PAGES ===== */}
+      <MainNavigation className="main" />
       <Switch>
         <Route path="/" exact={true}>
+          <HomePage />
         </Route>
 
         <Route path="/YuHang-Lee">
-          <YuhangLee className="yuhang" />
+          <AboutMe key={window.location.pathname}/>
         </Route>
 
         <Route path="/ChuCheng-Situ">
-          <ChuChengSitu />
+          <AboutMe key={window.location.pathname}/>
         </Route>
 
         <Route path="/Benjamin-McCullough">
-          <BenM />
+          <AboutMe key={window.location.pathname}/>
         </Route>
 
         <Route path="/Chase-Alexander">
-          <ChaseAlexander />
+          <AboutMe key={window.location.pathname}/>
         </Route>
 
         <Route path="/Lauren-Barer">
-          <LaurenBarer />
+          <AboutMe key={window.location.pathname}/>
         </Route>
         <Route path="/HomePage">
           <HomePage />
         </Route>
-      </Switch> */}
+      </Switch>
       <nav>
         <ul>
           <li>

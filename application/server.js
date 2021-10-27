@@ -7,9 +7,9 @@ const account = require('./routes/account');
 const about = require('./routes/about');
 
 const connection = mysql.createConnection({
-  host     : 'database-1.c0xp0u07woyj.us-west-1.rds.amazonaws.com',
-  user     : 'admin',
-  password : '918330561',
+  host: 'database-1.c0xp0u07woyj.us-west-1.rds.amazonaws.com',
+  user: 'admin',
+  password: '918330561',
   debug: false,
   multipleStatements: true
 });
@@ -17,9 +17,9 @@ const connection = mysql.createConnection({
 //Stuff for deployment
 app.use(express.static(path.join(__dirname, "build")));
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.get('/*', function (req, res) {
-   	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 }
 
@@ -34,14 +34,14 @@ app.use('/api/about', about);
 
 //HOME PAGE ROUTE
 app.get("/api/homepage", (req, res) => {
-  
+
   //Make connection to db
-  connection.connect( function(err) {
+  connection.connect(function (err) {
     if (err) {
       console.error('error connecting: ' + err.stack);
       return;
     }
-   
+
     console.log('connected as id ' + connection.threadId);
   });
 
@@ -52,7 +52,7 @@ app.get("/api/homepage", (req, res) => {
                    FROM Rently.Equipment_Category;';
 
   //Make query for data
-  connection.query(query, function (error, results, fields){
+  connection.query(query, function (error, results, fields) {
     if (error) throw error;
     console.log(results);
     //Send the data to the frontend
