@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classes from "./profiles.module.css";
+import classes from "../CSS/profiles.module.css";
 
 //In the future we will use this one component for all of th eabout pages
 
