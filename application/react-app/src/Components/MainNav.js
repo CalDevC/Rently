@@ -1,6 +1,6 @@
 // import React from "react";
 // import { Link } from "react-router-dom";
-// import classes from "./MainNavigation.module.css";
+// import classes from "../CSS/MainNavigation.module.css";
 
 // function MainNavigation() {
 //   return (
@@ -41,7 +41,7 @@
 
 import React, {Component} from "react";
 import { Link } from "react-router-dom";
-import classes from "./MainNavigation.module.css";
+import classes from "../CSS/MainNavigation.module.css";
 
 class MainNavigation extends Component{
   
@@ -49,27 +49,16 @@ class MainNavigation extends Component{
     
     return (
       <header>
-        <h1>About Me</h1>
-        <p> CSC 648 Software Engineering SFSU </p>
-        <p> Fall 2021 </p>
-        <p> Section 1 </p>
-        <p>Team 1</p>
         <nav>
           <ul className={classes.ul}>
             <li>
-              <Link to="/Yuhang-Lee">Yuhang Lee</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/ChuCheng-Situ">ChuCheng Situ</Link>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/Benjamin-McCullough">Benjamin McCullough</Link>
-            </li>
-            <li>
-              <Link to="/Chase-alexander">Chase Alexander</Link>
-            </li>
-            <li>
-              <Link to="/Lauren-Barer">Lauren Barer</Link>
+              <Link to="/LoginPage">Login Page</Link>
             </li>
           </ul>
         </nav>
