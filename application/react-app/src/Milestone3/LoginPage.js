@@ -31,7 +31,7 @@ class LoginPage extends Component {
         <div>
           <label htmlFor="Password">Password:</label>
           <input
-            type="text"
+            type="password"
             id="password"
             required
             id="title"
