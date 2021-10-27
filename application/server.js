@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql2');
 const port = process.env.PORT || 5000;
+const account = require('./routes/account');
 
 const connection = mysql.createConnection({
   host     : 'database-1.c0xp0u07woyj.us-west-1.rds.amazonaws.com',
@@ -22,6 +23,8 @@ if(process.env.NODE_ENV === 'production') {
 
 // This displays message that the server running and listening to specified port
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+app.use('/api/account', account);
 
 // ABOUT PAGE ROUTES
 app.get("/api/chase-alexander", (req, res) => {
