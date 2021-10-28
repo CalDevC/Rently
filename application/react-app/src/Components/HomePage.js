@@ -1,6 +1,6 @@
 import { Component } from "react";
 import React from "react";
-import classes from "./HomePage.module.css";
+import classes from "../CSS/HomePage.module.css";
 
 class HomePage extends Component {
   constructor() {
@@ -35,28 +35,6 @@ class HomePage extends Component {
     return (
       <form className={classes.form} onSubmit={this.submitHandler}>
         <h1>Rently</h1>
-        {/* ===== CREDENTIAL FIELDS ===== */
-        
-        /*<div className={classes.control}>
-          
-          <label htmlFor="Username">Username:</label>
-          <input
-            type="text"
-            id="username"
-          // ref={this.usernameInputRef}
-          />
-        </div>
-        <div className={classes.control}>
-          <label htmlFor="Password">Password:</label>
-          <input
-            type="text"
-            id="username"
-          // ref={this.passwordInputRef}
-          />
-        </div>
-        <div>
-          <button>Log in</button>
-        </div> */}
 
         <div>
           <button>Retrieve</button>
