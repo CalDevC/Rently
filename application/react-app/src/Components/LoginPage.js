@@ -25,7 +25,7 @@ class LoginPage extends Component {
             id="username"
             required
             id="title"
-            // ref={this.usernameInputRef}
+            ref={this.usernameInputRef}
           />
         </div>
         <div>
@@ -35,7 +35,7 @@ class LoginPage extends Component {
             id="password"
             required
             id="title"
-            // ref={this.passwordInputRef}
+            ref={this.passwordInputRef}
           />
         </div>
         <div>
