@@ -7,10 +7,16 @@ class LoginPage extends Component {
     this.usernameInputRef = React.createRef();
     this.passwordInputRef = React.createRef();
     this.submitHandler = this.submitHandler.bind(this);
+    this.state = {
+      data: {
+        username: "",
+        password: "",
+      },
+    };
   }
   submitHandler(event) {
     event.preventDefault();
-    fetch("/api/homepage")
+    fetch("/api/account/login")
       .then((res) => res.json())
       .then((res) => this.setState({ data: res }));
   }
