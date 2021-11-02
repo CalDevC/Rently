@@ -5,6 +5,9 @@ const pool = mysql.createPool({
     host: 'database-1.c0xp0u07woyj.us-west-1.rds.amazonaws.com',
     user: 'admin',
     password: '918330561',
+    database: 'Rently',
+    insecureAuth: true,
+    queueLimit: 0,
     debug: false,
     multipleStatements: true
 });
