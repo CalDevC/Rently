@@ -2,18 +2,43 @@ import { Component } from "react";
 import React from "react";
 
 class LoginPage extends Component {
+  
   constructor() {
     super();
     this.usernameInputRef = React.createRef();
     this.passwordInputRef = React.createRef();
     this.submitHandler = this.submitHandler.bind(this);
+    this.state = {
+      data: {
+        status: "",
+        msg: ""
+      },
+    };
   }
+
   submitHandler(event) {
     event.preventDefault();
-    fetch("/api/homepage")
-      .then((res) => res.json())
-      .then((res) => this.setState({ data: res }));
+
+    fetch('/api/account/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: 'chris',
+        password: '12345'
+      })
+    })
+    .then(response => response.json())
+    .then(res => {
+      console.log('Response Received: ', res);
+      this.setState({ data: res });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   }
+
   render() {
     return (
       <form onSubmit={this.submitHandler}>
