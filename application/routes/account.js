@@ -11,7 +11,7 @@ router.post('/login', (req, res) => {
   const password = req.body.password;
 
   if (!username || username.trim() === '' || !password || password.trim() === '') {
-    console.log('ERROR - no username of password given')
+    console.log('ERROR - no username or password given')
     res.send('error');
   }
 
