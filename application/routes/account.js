@@ -45,7 +45,7 @@ router.post('/login', (req, res) => {
 });
 
 
-router.post('/register', (req, res, next) => {
+router.post('/register', (req, res) => {
   let username = req.body.username;
   let email = req.body.email;
   let password = req.body.password;
@@ -53,11 +53,23 @@ router.post('/register', (req, res, next) => {
   let address = req.body.address;
   let zipCode = req.body.zipCode;
 
-  db.query(`INSERT INTO Register_User (username, email, password, dob, address, zipCode) values (?,?,?, now());`, (err) => {
-    if (err) {
-        console.log(err);
-        res.send(err);
-    }
+let query = `INSERT INTO Register_User (username, email, password, dob, address, zipCode) values ('${username}', '${email}', '${password}', '${dob}', '${address}', '${zipCode}');`;
+
+  //Make query for data
+  db.query(query)
+  .then(([results, fields]) => {
+    console.log(results); 
+
+    //Send the data to the frontend
+    res.send({
+      status: 'ok',
+      msg: 'Successfully Register'
+    });
   })
-})
+  .catch((err) => {
+    console.error('error connecting: ' + err.stack);
+    //next(err);
+  })
+
+});
 module.exports = router
