@@ -9,17 +9,35 @@ class LoginPage extends Component {
     this.submitHandler = this.submitHandler.bind(this);
     this.state = {
       data: {
-        username: "",
-        password: "",
+        status: "",
+        msg: "",
       },
     };
   }
+
   submitHandler(event) {
     event.preventDefault();
-    fetch("/api/account/login")
-      .then((res) => res.json())
-      .then((res) => this.setState({ data: res }));
+
+    fetch("/api/account/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: this.usernameInputRef.value,
+        password: this.passwordInputRef.value,
+      }),
+    })
+      .then((response) => response.text())
+      .then((res) => {
+        console.log("Response Received: ", res);
+        this.setState({ data: res });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
+
   render() {
     return (
       <form onSubmit={this.submitHandler}>
@@ -31,7 +49,7 @@ class LoginPage extends Component {
             id="username"
             required
             id="title"
-            ref={this.usernameInputRef}
+            ref={(node) => (this.usernameInputRef = node)}
           />
         </div>
         <div>
@@ -41,7 +59,7 @@ class LoginPage extends Component {
             id="password"
             required
             id="title"
-            ref={this.passwordInputRef}
+            ref={(node) => (this.passwordInputRef = node)}
           />
         </div>
         <div>
