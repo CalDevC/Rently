@@ -25,8 +25,8 @@ class LoginPage extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        username: 'chris',
-        password: '12345'
+        username: this.usernameInputRef.value,
+        password: this.passwordInputRef.value
       })
     })
     .then(response => response.json())
@@ -50,7 +50,7 @@ class LoginPage extends Component {
             id="username"
             required
             id="title"
-            ref={this.usernameInputRef}
+            ref={node => (this.usernameInputRef = node)}
           />
         </div>
         <div>
@@ -60,7 +60,7 @@ class LoginPage extends Component {
             id="password"
             required
             id="title"
-            ref={this.passwordInputRef}
+            ref={node => (this.passwordInputRef = node)}
           />
         </div>
         <div>
