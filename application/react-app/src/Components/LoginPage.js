@@ -32,6 +32,7 @@ class LoginPage extends Component {
       .then((res) => {
         console.log("Response Received: ", res);
         this.setState({ data: res });
+
       })
       .catch((error) => {
         console.error("Error:", error);
