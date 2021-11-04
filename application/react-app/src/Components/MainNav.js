@@ -63,6 +63,9 @@ class MainNavigation extends Component{
             <li>
               <Link to="/Registration">Create An Account</Link>
             </li>
+            <li>
+              <Link to="/Categories">Search By Category</Link>
+            </li>
           </ul>
         </nav>
       </header>
