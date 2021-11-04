@@ -46,6 +46,31 @@ class Registration extends Component {
         </div>
         <div>
           <form onSubmit={this.submitHandler}>
+          
+            <label>Enter Your Street Adress</label>
+            <input
+              type="text"
+              id="input_address"
+              required
+              name="adress"
+            />
+            <br />
+            <label>Enter Your 5 Digit Zip Code</label>
+            <input
+              type="text"
+              id="input_zip"
+              required
+              name="zip"
+            />
+            <br />
+            <label>Enter Your Date of Birth</label>
+            <input
+              type="Text"
+              id="input_birth"
+              required
+              name="birth"
+            />
+            <br />
             <label>Enter a Username</label>
             <input
               type="text"

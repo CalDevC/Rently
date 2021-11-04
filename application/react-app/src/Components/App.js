@@ -8,6 +8,7 @@ import AboutNav from "./AboutNav"
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 import Registration from "./Registration";
+import Categories from "./Categories";
 
 function App() {
   return (
@@ -58,6 +59,10 @@ function App() {
         
         <Route path="/Registration" exact={true}>
           <Registration className="Registration" />
+        </Route>
+
+        <Route path="/Categories" exact={true}>
+          <Categories className="Categories" />
         </Route>
 
       </Switch>
