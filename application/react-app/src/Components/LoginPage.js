@@ -2,7 +2,6 @@ import { Component } from "react";
 import React from "react";
 
 class LoginPage extends Component {
-  
   constructor() {
     super();
     this.usernameInputRef = React.createRef();
@@ -11,7 +10,7 @@ class LoginPage extends Component {
     this.state = {
       data: {
         status: "",
-        msg: ""
+        msg: "",
       },
     };
   }
@@ -19,24 +18,24 @@ class LoginPage extends Component {
   submitHandler(event) {
     event.preventDefault();
 
-    fetch('/api/account/login', {
-      method: 'POST',
+    fetch("/api/account/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         username: this.usernameInputRef.value,
-        password: this.passwordInputRef.value
+        password: this.passwordInputRef.value,
+      }),
+    })
+      .then((response) => response.text())
+      .then((res) => {
+        console.log("Response Received: ", res);
+        this.setState({ data: res });
       })
-    })
-    .then(response => response.json())
-    .then(res => {
-      console.log('Response Received: ', res);
-      this.setState({ data: res });
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
 
   render() {
