@@ -32,6 +32,7 @@ class LoginPage extends Component {
       .then((res) => {
         console.log("Response Received: ", res);
         this.setState({ data: res });
+
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -49,7 +50,7 @@ class LoginPage extends Component {
             id="username"
             required
             id="title"
-            ref={(node) => (this.usernameInputRef = node)}
+            ref={node => (this.usernameInputRef = node)}
           />
         </div>
         <div>
@@ -59,7 +60,7 @@ class LoginPage extends Component {
             id="password"
             required
             id="title"
-            ref={(node) => (this.passwordInputRef = node)}
+            ref={node => (this.passwordInputRef = node)}
           />
         </div>
         <div>

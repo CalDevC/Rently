@@ -24,6 +24,22 @@ app.use('/api/account', account);
 
 app.use('/api/about', about);
 
+//Category page routes
+app.get('api/posts/:catId', (req, res) => {
+  let query = `SELECT * FROM Equipment WHERE EquipmentCategory_ID = '${req.params.catId}'`
+
+  db.query(query)
+  .then(([results, fields]) => {
+    res.send(
+      results[0]
+    );
+  })
+  .catch((err) => {
+    console.error('error connecting: ' + err.stack);
+    next(err);
+  });
+});
+
 //HOME PAGE ROUTE
 app.get("/api/homepage", (req, res) => {
   let query = 'SELECT Register_User.username, Register_User.email, \
