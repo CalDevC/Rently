@@ -23,7 +23,7 @@ router.post('/login', (req, res) => {
     console.log(results);
 
     //Send the data to the frontend
-    if(results.length > 0){
+    if(results.length > 0 && password == results[0].password){
       res.send({
         status: 'ok',
         msg: 'Successfully logged in'
