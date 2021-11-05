@@ -1,5 +1,6 @@
 import { Component } from "react";
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class LoginPage extends Component {
   constructor() {
@@ -7,6 +8,7 @@ class LoginPage extends Component {
     this.usernameInputRef = React.createRef();
     this.passwordInputRef = React.createRef();
     this.submitHandler = this.submitHandler.bind(this);
+    this.routeChange = this.routeChange.bind(this);
     this.state = {
       data: {
         status: "",
@@ -14,7 +16,6 @@ class LoginPage extends Component {
       },
     };
   }
-
   submitHandler(event) {
     event.preventDefault();
 
@@ -36,6 +37,10 @@ class LoginPage extends Component {
       .catch((error) => {
         console.error("Error:", error);
       });
+  }
+  routeChange() {
+    let path = `/`;
+    this.props.history.push(path);
   }
 
   render() {
@@ -63,11 +68,11 @@ class LoginPage extends Component {
           />
         </div>
         <div>
-          <button>Log in</button>
+          <button onClick={this.routeChange}>Log in</button>
         </div>
       </form>
     );
   }
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

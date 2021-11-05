@@ -3,11 +3,12 @@ import "../CSS/App.css";
 import React from "react";
 import AboutMe from "./AboutMe";
 import MainNav from "./MainNav";
-import AboutNav from "./AboutNav"
+import AboutNav from "./AboutNav";
 
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 import Registration from "./Registration";
+import ProfilePage from "./ProfilePage";
 
 function App() {
   return (
@@ -25,27 +26,27 @@ function App() {
 
         <Route path="/YuHang-Lee">
           <AboutNav />
-          <AboutMe key={window.location.pathname}/>
+          <AboutMe key={window.location.pathname} />
         </Route>
 
         <Route path="/ChuCheng-Situ">
           <AboutNav />
-          <AboutMe key={window.location.pathname}/>
+          <AboutMe key={window.location.pathname} />
         </Route>
 
         <Route path="/Benjamin-McCullough">
           <AboutNav />
-          <AboutMe key={window.location.pathname}/>
+          <AboutMe key={window.location.pathname} />
         </Route>
 
         <Route path="/Chase-Alexander">
           <AboutNav />
-          <AboutMe key={window.location.pathname}/>
+          <AboutMe key={window.location.pathname} />
         </Route>
 
         <Route path="/Lauren-Barer">
           <AboutNav />
-          <AboutMe key={window.location.pathname}/>
+          <AboutMe key={window.location.pathname} />
         </Route>
 
         <Route path="/HomePage">
@@ -55,11 +56,13 @@ function App() {
         <Route path="/LoginPage" exact={true}>
           <LoginPage className="LoginPage" />
         </Route>
-        
+
         <Route path="/Registration" exact={true}>
           <Registration className="Registration" />
         </Route>
-
+        <Route path="/Profile" exact={true}>
+          <ProfilePage className="ProfilePage" />
+        </Route>
       </Switch>
     </div>
   );

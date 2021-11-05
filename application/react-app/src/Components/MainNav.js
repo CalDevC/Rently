@@ -35,18 +35,12 @@
 
 // export default MainNavigation;
 
-
-
-
-
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import classes from "../CSS/MainNavigation.module.css";
 
-class MainNavigation extends Component{
-  
-  render(){
-    
+class MainNavigation extends Component {
+  render() {
     return (
       <header>
         <nav>
@@ -62,6 +56,9 @@ class MainNavigation extends Component{
             </li>
             <li>
               <Link to="/Registration">Create An Account</Link>
+            </li>
+            <li>
+              <Link to="/Profile">Profile</Link>
             </li>
           </ul>
         </nav>
