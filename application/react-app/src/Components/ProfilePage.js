@@ -1,14 +1,15 @@
 import { Component } from "react";
 import React from "react";
-import { withRouter } from "react-router-dom";
 
-class LoginPage extends Component {
+class ProfilePage extends Component {
   constructor() {
     super();
     this.usernameInputRef = React.createRef();
     this.passwordInputRef = React.createRef();
+    this.nameInputRef = React.createRef();
+    this.emailInputRef = React.createRef();
+
     this.submitHandler = this.submitHandler.bind(this);
-    this.routeChange = this.routeChange.bind(this);
     this.state = {
       data: {
         status: "",
@@ -16,10 +17,11 @@ class LoginPage extends Component {
       },
     };
   }
+
   submitHandler(event) {
     event.preventDefault();
 
-    fetch("/api/account/login", {
+    fetch("/api/account/profile", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -27,21 +29,18 @@ class LoginPage extends Component {
       body: JSON.stringify({
         username: this.usernameInputRef.value,
         password: this.passwordInputRef.value,
+        name: this.nameInputRef.value,
+        email: this.emailInputRef.value,
       }),
     })
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((res) => {
         console.log("Response Received: ", res);
         this.setState({ data: res });
-
       })
       .catch((error) => {
         console.error("Error:", error);
       });
-  }
-  routeChange() {
-    let path = `/`;
-    this.props.history.push(path);
   }
 
   render() {
@@ -55,7 +54,7 @@ class LoginPage extends Component {
             id="username"
             required
             id="title"
-            ref={node => (this.usernameInputRef = node)}
+            ref={(node) => (this.usernameInputRef = node)}
           />
         </div>
         <div>
@@ -65,15 +64,37 @@ class LoginPage extends Component {
             id="password"
             required
             id="title"
-            ref={node => (this.passwordInputRef = node)}
+            ref={(node) => (this.passwordInputRef = node)}
           />
         </div>
         <div>
-          <button onClick={this.routeChange}>Log in</button>
+          <label htmlFor="Name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            required
+            id="title"
+            ref={(node) => (this.nameInputRef = node)}
+          />
+        </div>
+        <div>
+          <label htmlFor="Email">Email:</label>
+          <input
+            type="text"
+            id="email"
+            required
+            id="title"
+            ref={(node) => (this.emailInputRef = node)}
+          />
+        </div>
+        <label htmlFor="Picture">Picture</label>
+        <div>{/* <img src="images/Member1.jpg" width={200} alt="" /> */}</div>
+        <div>
+          <button>Save</button>
         </div>
       </form>
     );
   }
 }
 
-export default withRouter(LoginPage);
+export default ProfilePage;
