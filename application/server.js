@@ -27,7 +27,7 @@ app.use('/api/about', about);
 
 app.use('/api/categories', categories);
 
-//HOME PAGE ROUTE
+//Home Page Route
 app.get("/api/homepage", (req, res) => {
   let query = 'SELECT Register_User.username, Register_User.email, \
               Register_User.password, Register_User.dob, Register_User.address, \

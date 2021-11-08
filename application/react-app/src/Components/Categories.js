@@ -45,7 +45,7 @@ class Categories extends Component {
 
       //If not a subcategory, make a new multiLink
       if(pieces.length === 1){
-        categoryLinks[i] = <MultiLink title={category.description} link={desc} subLinks={[]}/>
+        categoryLinks[i] = <MultiLink title={category.description} link={'Categories/' + desc} subLinks={[]}/>
       }
       else {  //If it is a subcategory
         //Find the category that the suubcategory belongs to
@@ -59,7 +59,7 @@ class Categories extends Component {
             let subLinkList = div.props.subLinks;
             subLinkList[subLinkList.length] = (
               <div key={subLinkList.length - 1}>
-                <Link to={desc}> 
+                <Link to={'Categories/' + desc}> 
                   {pieces[1]} 
                 </Link>
                 <br />
