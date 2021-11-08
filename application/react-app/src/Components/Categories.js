@@ -24,7 +24,6 @@ class Categories extends Component {
     .then((res) => res.json() )
     .then((jsonRes) => {
       this.setState({categoryInfo: jsonRes});
-      this.createButtonList();
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -40,12 +39,12 @@ class Categories extends Component {
     //For every category in the list
     for(let i in categoryList){
       let category = categoryList[i];
-      let desc = category.description.replace(/\s+/g, '');
+      let desc = category.description;
       let pieces = category.description.split('/');
 
       //If not a subcategory, make a new multiLink
       if(pieces.length === 1){
-        categoryLinks[i] = <MultiLink title={category.description} link={'Categories/' + desc} subLinks={[]}/>
+        categoryLinks[i] = <MultiLink title={desc} link={'Categories/' + desc} subLinks={[]}/>
       }
       else {  //If it is a subcategory
         //Find the category that the suubcategory belongs to

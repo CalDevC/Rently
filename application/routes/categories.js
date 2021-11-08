@@ -22,14 +22,16 @@ router.get('/all', (req, res) => {
 });
 
 //Category page routes
-router.get('api/posts/:catId', (req, res) => {
-  let query = `SELECT * FROM Equipment WHERE EquipmentCategory_ID = '${req.params.catId}'`
+router.get(/\/(...)/, (req, res) => {
+  // res.send({express: "express"});
+  let desc = /categories\/(.+)/.exec(req.originalUrl)[1].replace('%20', ' ');
+  let query = `SELECT * FROM Equipment WHERE EquipmentCategory_ID = ( SELECT equipmentCategory_ID FROM Equipment_Category WHERE description = '${desc}' );`
 
   db.query(query)
   .then(([results, fields]) => {
-    res.send(
-      results[0]
-    );
+    res.send({
+      results: results[0]
+    });
   })
   .catch((err) => {
     console.error('error connecting: ' + err.stack);
