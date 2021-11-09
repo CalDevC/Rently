@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var db = require('../config/database');
+const db = require('../config/database');
 
 //Tell express to read incoming data as json
 router.use(express.json());
@@ -72,4 +72,5 @@ let query = `INSERT INTO Register_User (username, email, password, dob, address,
   })
 
 });
+
 module.exports = router

@@ -1,4 +1,4 @@
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch} from "react-router-dom";
 import "../CSS/App.css";
 import React from "react";
 import AboutMe from "./AboutMe";
@@ -10,6 +10,7 @@ import LoginPage from "./LoginPage";
 import Registration from "./Registration";
 import ProfilePage from "./ProfilePage";
 import Categories from "./Categories";
+import Category from "./Category";
 
 function App() {
   return (
@@ -61,12 +62,19 @@ function App() {
         <Route path="/Registration" exact={true}>
           <Registration className="Registration" />
         </Route>
+
         <Route path="/Profile" exact={true}>
           <ProfilePage className="ProfilePage" />
         </Route>
+
         <Route path="/Categories" exact={true}>
           <Categories className="Categories" />
         </Route>
+
+        <Route path="/Categories" exact={false}>
+          <Category />
+        </Route>
+
       </Switch>
     </div>
   );
