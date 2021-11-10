@@ -1,15 +1,16 @@
-import { Route, Switch, Link } from "react-router-dom";
-import "../CSS/App.css";
-import React from "react";
-import AboutMe from "./AboutMe";
-import MainNav from "./MainNav";
-import AboutNav from "./AboutNav";
+import { Route, Switch, Link } from 'react-router-dom';
+import '../CSS/App.css';
+import React from 'react';
+import AboutMe from './AboutMe';
+import MainNav from './MainNav';
+import AboutNav from './AboutNav';
 
-import HomePage from "./HomePage";
-import LoginPage from "./LoginPage";
-import Registration from "./Registration";
-import ProfilePage from "./ProfilePage";
-import Categories from "./Categories";
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
+import Registration from './Registration';
+import ProfilePage from './ProfilePage';
+import Categories from './Categories';
+import PostPage from './PostPage';
 
 function App() {
   return (
@@ -66,6 +67,9 @@ function App() {
         </Route>
         <Route path="/Categories" exact={true}>
           <Categories className="Categories" />
+        </Route>
+        <Route path="/PostPage" exact={true}>
+          <PostPage className="PostPage" />
         </Route>
       </Switch>
     </div>
