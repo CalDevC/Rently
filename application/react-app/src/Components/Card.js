@@ -1,25 +1,17 @@
-import "./Card.module.css";
+import styles from "../CSS/Card.module.css";
+import { useHistory } from 'react-router-dom';
 
-
-function Card(photo, title, desc) { 
+function Card(props) { 
+  const history = useHistory();
   return (
     
-    <div className = "mainCard">
-      <div className= "cardPic">
-        <img src={photo} alt =" "/>
-      </div>
+    <div className ={styles.mainCard} id="cardId">
       <div className = "cardTitle">
-        {title}
-      </div>
-      <div className = "cardDesc">
-        {desc}
+        {props.title}
       </div>
       <div className ="button">
-        <button>
+        <button onClick={() => history.push('/displayPage')}>
             View Item
-        </button>
-        <button>
-            Edit Item
         </button>
       </div>
     </div>
