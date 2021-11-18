@@ -24,7 +24,7 @@ router.get('/all', (req, res) => {
 //Category page routes
 router.get(/\/(...)/, (req, res) => {
    // res.send({express: "express"});
-   let desc = /categories\/(.+)/.exec(req.originalUrl)[1].replace('%20', ' ');
+   let desc = /categories\/(.+)/.exec(req.originalUrl)[1].replace(/%20/g, ' ');
    let query = `SELECT * FROM Rental WHERE EquipmentCategory_ID = ( SELECT equipmentCategory_ID FROM Equipment_Category WHERE description = '${desc}' );`
 
    db.query(query)

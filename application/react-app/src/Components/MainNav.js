@@ -12,7 +12,6 @@ class MainNavigation extends Component {
    }
 
    loginBtn() {
-      console.log("NAV UPDATED")
       let logged = localStorage.getItem("logged_in");
       if (logged) {
          return <a onClick={this.logOut} >Log out</a >
@@ -31,7 +30,7 @@ class MainNavigation extends Component {
    render() {
       return (
          <header>
-            <nav class="nav">
+            <nav className="nav">
                <ul className={classes.ul}>
                   <li>
                      <Link to="/">Home</Link>

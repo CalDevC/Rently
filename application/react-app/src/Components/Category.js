@@ -17,7 +17,8 @@ class Category extends Component {
    getCategoryInfo() {
       //Get category from url
       var url = window.location.href;
-      let category = /Categories\/(.+)/.exec(url)[1].replace('%20', ' ');
+      let category = /Categories\/(.+)/.exec(url)[1].replace(/%20/g, ' ');
+      console.log("category: " + category);
 
       fetch(`/api/categories/${category}`)
          .then((res) => res.json())
@@ -37,7 +38,9 @@ class Category extends Component {
       //For each post
       for (let i in postList) {
          let post = postList[i];
-         descList[i] = <Card title={post.results.description}/>;
+         console.log("POST BELOW: ");
+         console.log(post);
+         descList[i] = <Card title={post.results.description} />;
       }
 
       console.log(descList);
