@@ -1,8 +1,27 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import classes from "../CSS/MainNavigation.module.css";
 
 class MainNavigation extends Component {
+
+  loginBtn() {
+    if (localStorage.getItem("logged_in") != true) {
+      return <Link to="/LoginPage">Login Page</Link>
+    }
+    else {
+      return <a onClick={this.logOut}>Log out</a>
+    }
+  }
+
+  logOut() {
+    localStorage.removeItem('logged_in');
+  }
+
+  componentDidUpdate() {
+    this.loginBtn();
+    this.render();
+  }
+
   render() {
     return (
       <header>
@@ -15,7 +34,7 @@ class MainNavigation extends Component {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/LoginPage">Login Page</Link>
+              {this.loginBtn()}
             </li>
             <li>
               <Link to="/Registration">Create An Account</Link>

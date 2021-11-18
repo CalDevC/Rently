@@ -13,6 +13,7 @@ class LoginPage extends Component {
       data: {
         status: "",
         msg: "",
+        user: {}
       },
     };
   }
@@ -29,15 +30,24 @@ class LoginPage extends Component {
         password: this.passwordInputRef.value,
       }),
     })
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((res) => {
         console.log("Response Received: ", res);
-        this.setState({ data: res });
+        this.setState({ data: res }, this.storeUserInfo);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }
+
+  storeUserInfo() {
+    if (this.state.data.status == "ok") {
+      localStorage.setItem('user', this.state.data.user.userName);
+      localStorage.setItem('email', this.state.data.user.email);
+      localStorage.setItem('logged_in', true);
+    }
+  }
+
   routeChange() {
     let path = `/`;
     this.props.history.push(path);
@@ -68,7 +78,7 @@ class LoginPage extends Component {
           />
         </div>
         <div>
-          <button onClick={this.routeChange}>Log in</button>
+          <button>Log in</button>
         </div>
       </form>
     );
