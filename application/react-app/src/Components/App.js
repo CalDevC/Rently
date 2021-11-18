@@ -74,12 +74,12 @@ function App() {
                <Categories className="Categories" />
             </Route>
 
-            <Route path="/CreateListing" exact={true}>
-               <PostPage />
+            <Route path="/Categories" exact={false}>
+               <Category />
             </Route>
 
-            <Route path="/Category" exact={true}>
-               <Category />
+            <Route path="/CreateListing" exact={true}>
+               <PostPage />
             </Route>
 
             <Route path="/DisplayPage" exact={true}>
