@@ -55,7 +55,7 @@ class Registration extends Component {
             <div>
                <form onSubmit={this.submitHandler}>
                   <div>
-                     <label>Enter a Username:</label>
+                     <label>Username:</label>
                      <input
                         type="text"
                         id="input_username"
@@ -77,7 +77,7 @@ class Registration extends Component {
                   </div>
 
                   <div>
-                     <label>Enter Password:</label>
+                     <label>Password:</label>
                      <input
                         type="password"
                         id="input_password"
@@ -98,7 +98,7 @@ class Registration extends Component {
                   </div>
 
                   <div>
-                     <label>Enter Your Date of Birth:</label>
+                     <label>Date of Birth:</label>
                      <input
                         type="Text"
                         id="input_birth"
@@ -109,7 +109,7 @@ class Registration extends Component {
                   </div>
 
                   <div>
-                     <label>Enter Your Street Address:</label>
+                     <label>Street Address:</label>
                      <input
                         type="text"
                         id="input_address"
@@ -120,7 +120,7 @@ class Registration extends Component {
                   </div>
 
                   <div>
-                     <label>Enter Your 5 Digit Zip Code:</label>
+                     <label>Zip Code:</label>
                      <input
                         type="text"
                         id="input_zip"
