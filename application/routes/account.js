@@ -77,4 +77,20 @@ router.post('/register', (req, res) => {
 
 });
 
+router.post('/getUser', (req, res) => {
+   const userID = req.body.userID;
+   console.log("HERE: ", userID);
+   let query = `SELECT userName FROM Register_User WHERE RegisteredUser_ID = ${userID}`;
+
+   db.query(query)
+      .then(([results, fields]) => {
+         console.log(results);
+         res.send(results[0]);
+      })
+      .catch((err) => {
+         console.error('error connecting: ' + err.stack);
+         res.redirect('/');
+      });
+});
+
 module.exports = router

@@ -33,7 +33,6 @@ class DisplayPage extends Component {
       })
          .then(res => res.json())
          .then(jsonRes => {
-            console.log('Response Received: ', jsonRes);
             this.setState({ postInfo: jsonRes });
          })
          .catch((error) => {
@@ -43,7 +42,27 @@ class DisplayPage extends Component {
 
    submitHandler(event) {
       event.preventDefault();
+      var userID = this.state.postInfo.RegisteredUser_ID;
+      var username = '';
 
+      fetch(`/api/account/getUser`, {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json',
+         },
+         body: JSON.stringify({
+            userID: userID
+         }),
+      })
+         .then(res => res.json())
+         .then(jsonRes => {
+            username = jsonRes.userName;
+         })
+         .catch((error) => {
+            console.error('Error:', error);
+         });
+
+      return (<h5>{username}</h5>);
    }
 
    routeChange() {
