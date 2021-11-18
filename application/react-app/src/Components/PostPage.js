@@ -20,15 +20,17 @@ class PostPage extends Component {
          },
       };
    }
+
    submitHandler(event) {
       event.preventDefault();
 
-      fetch('/api/account/post', {
+      fetch('/api/posts/addPost', {
          method: 'POST',
          headers: {
             'Content-Type': 'application/json',
          },
          body: JSON.stringify({
+            user: localStorage.getItem('user'),
             equipment: this.equipmentInputRef.value,
             price: this.priceInputRef.value,
             depositFee: this.depositFeeInputRef.value,
@@ -46,6 +48,7 @@ class PostPage extends Component {
             console.error('Error:', error);
          });
    }
+
    routeChange() {
       let path = `/`;
       this.props.history.push(path);
@@ -110,7 +113,7 @@ class PostPage extends Component {
                />
             </div>
             <div>
-               <button onClick={this.routeChange}>Post</button>
+               <button onClick={this.submitHandler}>Post</button>
             </div>
          </form>
       );

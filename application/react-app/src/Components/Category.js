@@ -40,7 +40,7 @@ class Category extends Component {
          let post = postList[i];
          console.log("POST BELOW: ");
          console.log(post);
-         descList[i] = <Card title={post.results.description} />;
+         descList[i] = <Card key={post.results.Rental_ID} title={post.results.description} id={post.results.Rental_ID} />;
       }
 
       console.log(descList);
