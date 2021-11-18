@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import Card from './Card';
 
 class Category extends Component {
 
@@ -36,7 +37,7 @@ class Category extends Component {
       //For each post
       for (let i in postList) {
          let post = postList[i];
-         descList[i] = <p key={post.results.Equipment_ID}>{post.results.description}</p>;
+         descList[i] = <Card title={post.results.description}/>;
       }
 
       console.log(descList);
