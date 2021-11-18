@@ -47,13 +47,10 @@ class MainNavigation extends Component {
                      <Link to="/Categories">Search By Category</Link>
                   </li>
                   <li>
-                     <Link to="/PostPage">Post New Item</Link>
+                     <Link to="/CreateListing">List An Item</Link>
                   </li>
                   <li>
                      <Link to="/DisplayPage">Display</Link>
-                  </li>
-                  <li>
-                     <Link to="/CreateListing">List An Item</Link>
                   </li>
                </ul>
             </nav>

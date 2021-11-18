@@ -9,6 +9,10 @@ router.post('/addPost', (req, res) => {
    const description = req.body.description;
    const price = req.body.price;
    const penalty = req.body.penity;
+   const equipment = req.body.equipment;
+   const deposit = req.body.depositFee;
+   const location = req.body.location;
+   const delivery = req.body.delivery;
 
    let query = `INSERT INTO Rental
    (startDay,
@@ -19,36 +23,25 @@ router.post('/addPost', (req, res) => {
    delivery,
    description)
    VALUES
-   (<{startDay: }>,
-   <{endDay: }>,
-   <{RegisteredUser_ID: }>,
+   ('2021 05 05 05:05:00',
+   '2021 05 06 05:05:00',
+   (SELECT RegisteredUser_ID FROM Register_User WHERE userName = ${localStorage.getItem('user')}),
    (SELECT equiomentCategory_ID FROM Equipment_Category WHERE description = ${description}),
    ${price},
-   <{delivery: }>,
-   <{description: }>);`;
+   ${delivery},
+   ${description});`;
 
 
    //Make query for data
    db.query(query)
-      .then((EquipmentCategory_ID) => {
-         if (EquipmentCategory_ID = 0) {
-            db.query = `INSERT INTO Equipment (description, price, penity) values ('${description}' '${price}' '${penity}') WHERE EquipmentCategory_ID = 0 ;`
-            res.redirect('/');
-         } else if (EquipmentCategory_ID = 1) {
-            db.query = `INSERT INTO Equipment (description, price, penity) values ('${description}' '${price}' '${penity}') WHERE EquipmentCategory_ID = 1 ;`
-            res.redirect('/');
-         } else if (EquipmentCategory_ID = 2) {
-            db.query = `INSERT INTO Equipment (description, price, penity) values ('${description}' '${price}' '${penity}') WHERE EquipmentCategory_ID = 2 ;`
-            res.redirect('/');
-         }
-         //console.log(results); 
-         //return Promise.resolve(results && results.affectedRows);
-
+      .then(([results, fields]) => {
+         console.log(results);
+         res.redirect('/');
          //Send the data to the frontend
-         //res.send({
-         // status: 'ok',
-         //msg: 'Successfully Post'
-         //});
+         // res.send({
+         //    status: 'ok',
+         //    msg: 'Successfully Delete'
+         // });
       })
       .catch((err) => {
          console.error('error connecting: ' + err.stack);
@@ -58,9 +51,6 @@ router.post('/addPost', (req, res) => {
 });
 
 router.post('/deletePost', (req, res) => {
-   let description = req.body.description;
-   let price = req.body.price;
-   let penity = req.body.penity;
 
    let query = `DELETE Equipment WHERE Equipment_ID = (); `
 
