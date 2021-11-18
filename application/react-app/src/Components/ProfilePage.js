@@ -45,8 +45,11 @@ class ProfilePage extends Component {
 
   render() {
     return (
+      <div>
+        <div className="header" id="page_header">
+          <h1>Update Profile</h1>
+        </div>
       <form onSubmit={this.submitHandler}>
-        <h1>Rently</h1>
         <div>
           <label htmlFor="Username">Username:</label>
           <input
@@ -93,6 +96,7 @@ class ProfilePage extends Component {
           <button>Save</button>
         </div>
       </form>
+      </div>
     );
   }
 }

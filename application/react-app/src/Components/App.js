@@ -11,6 +11,7 @@ import Registration from "./Registration";
 import ProfilePage from "./ProfilePage";
 import Categories from "./Categories";
 import Category from "./Category";
+import EditListing from "./EditListing";
 
 function App() {
   return (
@@ -73,6 +74,10 @@ function App() {
 
         <Route path="/Categories" exact={false}>
           <Category />
+        </Route>
+
+        <Route path="/EditListing" exact={false}>
+          <EditListing className ="EditListing"/>
         </Route>
 
       </Switch>
