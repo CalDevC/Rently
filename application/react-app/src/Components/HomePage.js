@@ -33,23 +33,9 @@ class HomePage extends Component {
   render() {
     let data = this.state.data;
     return (
-      <form className={classes.form} onSubmit={this.submitHandler}>
+      <div>
         <h1>Rently</h1>
-
-        <div>
-          <button>Retrieve</button>
-        </div>
-        <h3> Registered User </h3>
-        <h4> Username : {data.username} </h4>
-        <h4> Email : {data.email} </h4>
-        <h4> Password : {data.password}</h4>
-        <h4>Date of Birth : {data.dob.split('T')[0]}</h4>
-        <h4> Address : {data.address} </h4>
-        <h4> Zip Code : {data.zipCode} </h4>
-        <br />
-        <h3> Posting Category </h3>
-        <h4>Equipment Category : {data.equipmentCategory}</h4>
-      </form>
+      </div>
     );
   }
 }

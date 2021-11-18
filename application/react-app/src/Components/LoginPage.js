@@ -1,6 +1,7 @@
 import { Component } from "react";
 import React from "react";
 import { withRouter } from "react-router-dom";
+import "../CSS/Registration.module.css";
 
 class LoginPage extends Component {
   constructor() {
@@ -45,8 +46,12 @@ class LoginPage extends Component {
 
   render() {
     return (
+      <div>
+    <div className="header" id="page_header">
+      <h1>Login</h1>
+    </div>
       <form onSubmit={this.submitHandler}>
-        <h1>Rently</h1>
+        
         <div>
           <label htmlFor="Username">Username:</label>
           <input
@@ -71,6 +76,7 @@ class LoginPage extends Component {
           <button onClick={this.routeChange}>Log in</button>
         </div>
       </form>
+      </div>
     );
   }
 }
