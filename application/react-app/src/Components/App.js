@@ -1,4 +1,4 @@
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import '../CSS/App.css';
 import React from 'react';
 import AboutMe from './AboutMe';
@@ -10,7 +10,9 @@ import LoginPage from './LoginPage';
 import Registration from './Registration';
 import ProfilePage from './ProfilePage';
 import Categories from './Categories';
+import Category from './Category';
 import PostPage from './PostPage';
+import DisplayPage from './DisplayPage';
 
 function App() {
   return (
@@ -62,14 +64,23 @@ function App() {
         <Route path="/Registration" exact={true}>
           <Registration className="Registration" />
         </Route>
+
         <Route path="/Profile" exact={true}>
           <ProfilePage className="ProfilePage" />
         </Route>
+
         <Route path="/Categories" exact={true}>
           <Categories className="Categories" />
         </Route>
+
         <Route path="/PostPage" exact={true}>
-          <PostPage className="PostPage" />
+          <PostPage />
+        </Route>
+        <Route path="/Category" exact={true}>
+          <Category />
+        </Route>
+        <Route path="/DisplayPage" exact={true}>
+          <DisplayPage />
         </Route>
       </Switch>
     </div>

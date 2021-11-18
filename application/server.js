@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const account = require('./routes/account');
 const about = require('./routes/about');
+const categories = require('./routes/categories')
 var db = require('./config/database');
 
 //Stuff for deployment
@@ -24,23 +25,9 @@ app.use('/api/account', account);
 
 app.use('/api/about', about);
 
-//Category page routes
-app.get('api/posts/:catId', (req, res) => {
-  let query = `SELECT * FROM Equipment WHERE EquipmentCategory_ID = '${req.params.catId}'`
+app.use('/api/categories', categories);
 
-  db.query(query)
-  .then(([results, fields]) => {
-    res.send(
-      results[0]
-    );
-  })
-  .catch((err) => {
-    console.error('error connecting: ' + err.stack);
-    next(err);
-  });
-});
-
-//HOME PAGE ROUTE
+//Home Page Route
 app.get("/api/homepage", (req, res) => {
   let query = 'SELECT Register_User.username, Register_User.email, \
               Register_User.password, Register_User.dob, Register_User.address, \

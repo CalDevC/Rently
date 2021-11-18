@@ -29,6 +29,9 @@ class MainNavigation extends Component {
             <li>
               <Link to="/PostPage">Post New Item</Link>
             </li>
+            <li>
+              <Link to="/DisplayPage">Display</Link>
+            </li>
           </ul>
         </nav>
       </header>

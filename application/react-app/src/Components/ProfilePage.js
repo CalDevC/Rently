@@ -1,5 +1,6 @@
-import { Component } from "react";
-import React from "react";
+import { Component } from 'react';
+import React from 'react';
+import styles from '../CSS/Profile.module.css';
 
 class ProfilePage extends Component {
   constructor() {
@@ -12,8 +13,8 @@ class ProfilePage extends Component {
     this.submitHandler = this.submitHandler.bind(this);
     this.state = {
       data: {
-        status: "",
-        msg: "",
+        status: '',
+        msg: '',
       },
     };
   }
@@ -21,10 +22,10 @@ class ProfilePage extends Component {
   submitHandler(event) {
     event.preventDefault();
 
-    fetch("/api/account/profile", {
-      method: "POST",
+    fetch('/api/account/profile', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         username: this.usernameInputRef.value,
@@ -35,18 +36,19 @@ class ProfilePage extends Component {
     })
       .then((response) => response.json())
       .then((res) => {
-        console.log("Response Received: ", res);
+        console.log('Response Received: ', res);
         this.setState({ data: res });
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
   }
 
   render() {
     return (
       <form onSubmit={this.submitHandler}>
-        <h1>Rently</h1>
+        <h1 className={styles.rently}>Rently</h1>
+        <h2 className={styles.profile}> Your Profile </h2>
         <div>
           <label htmlFor="Username">Username:</label>
           <input
