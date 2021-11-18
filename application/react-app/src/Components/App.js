@@ -86,6 +86,10 @@ function App() {
                <DisplayPage />
             </Route>
 
+            <Route path="/posts/:id" exact={true}>
+               <DisplayPage />
+            </Route>
+
             <Route path="/EditListing" exact={false}>
                <EditListing className="EditListing" />
             </Route>

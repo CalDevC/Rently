@@ -4,29 +4,33 @@ import classes from '../CSS/MainNavigation.module.css';
 import "../CSS/MainNavigation.module.css";
 
 class MainNavigation extends Component {
+   constructor() {
+      super();
+      this.state = {
+         logged: false
+      }
+   }
 
    loginBtn() {
-      if (localStorage.getItem("logged_in") != true) {
-         return <Link to="/LoginPage">Login Page</Link>
+      let logged = localStorage.getItem("logged_in");
+      if (logged) {
+         return <a onClick={this.logOut} >Log out</a >
       }
       else {
-         return <a onClick={this.logOut}>Log out</a>
+         return <Link to="/LoginPage">Login</Link>
       }
    }
 
    logOut() {
       localStorage.removeItem('logged_in');
-   }
-
-   componentDidUpdate() {
-      this.loginBtn();
-      this.render();
+      localStorage.removeItem('user');
+      localStorage.removeItem('email');
    }
 
    render() {
       return (
          <header>
-            <nav class="nav">
+            <nav className="nav">
                <ul className={classes.ul}>
                   <li>
                      <Link to="/">Home</Link>
