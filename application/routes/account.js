@@ -19,28 +19,30 @@ router.post('/login', (req, res) => {
 
   //Make query for data
   db.query(query)
-  .then(([results, fields]) => {
-    console.log(results);
+    .then(([results, fields]) => {
+      console.log(results);
 
-    //Send the data to the frontend
-    if(results.length > 0 && password == results[0].password){
-      res.send({
-        status: 'ok',
-        msg: 'Successfully logged in'
-      });
-    }
-    else{
-      res.send({
-        status: 'bad',
-        msg: 'Invalid Username or Password'
-      });
-    }
+      //Send the data to the frontend
+      if (results.length > 0 && password == results[0].password) {
+        console.log(results);
+        res.send({
+          status: 'ok',
+          msg: 'Successfully logged in',
+          user: results[0]
+        });
+      }
+      else {
+        res.send({
+          status: 'bad',
+          msg: 'Invalid Username or Password'
+        });
+      }
 
-  })
-  .catch((err) => {
-    console.error('error connecting: ' + err.stack);
-    next(err);
-  })
+    })
+    .catch((err) => {
+      console.error('error connecting: ' + err.stack);
+      next(err);
+    })
 
 });
 
@@ -53,23 +55,23 @@ router.post('/register', (req, res) => {
   let address = req.body.address;
   let zipCode = req.body.zipCode;
 
-let query = `INSERT INTO Register_User (username, email, password, dob, address, zipCode) values ('${username}', '${email}', '${password}', '${dob}', '${address}', '${zipCode}');`;
+  let query = `INSERT INTO Register_User (username, email, password, dob, address, zipCode) values ('${username}', '${email}', '${password}', '${dob}', '${address}', '${zipCode}');`;
 
   //Make query for data
   db.query(query)
-  .then(([results, fields]) => {
-    console.log(results); 
+    .then(([results, fields]) => {
+      console.log(results);
 
-    //Send the data to the frontend
-    res.send({
-      status: 'ok',
-      msg: 'Successfully Register'
-    });
-  })
-  .catch((err) => {
-    console.error('error connecting: ' + err.stack);
-    //next(err);
-  })
+      //Send the data to the frontend
+      res.send({
+        status: 'ok',
+        msg: 'Successfully Register'
+      });
+    })
+    .catch((err) => {
+      console.error('error connecting: ' + err.stack);
+      //next(err);
+    })
 
 });
 
