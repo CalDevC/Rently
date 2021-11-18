@@ -1,3 +1,15 @@
-.ul {
-  list-style-type: none;
+ul {
+display: flex;
+justify-content: space-between;
+list-style-type: none;
+
 }
+li{
+border: 2.5px solid rgb(98, 199, 140);
+border-radius: 5px;
+background-color: white;
+}
+a {
+    text-decoration: none;
+    color: black;
+  }

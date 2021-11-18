@@ -46,6 +46,10 @@ class ProfilePage extends Component {
 
   render() {
     return (
+      <div>
+        <div className="header" id="page_header">
+          <h1>Update Profile</h1>
+        </div>
       <form onSubmit={this.submitHandler}>
         <h1 className={styles.rently}>Rently</h1>
         <h2 className={styles.profile}> Your Profile </h2>
@@ -95,6 +99,7 @@ class ProfilePage extends Component {
           <button>Save</button>
         </div>
       </form>
+      </div>
     );
   }
 }

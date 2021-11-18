@@ -2,6 +2,8 @@ import { Component } from 'react';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styles from '../CSS/LoginPage.module.css';
+import "../CSS/Registration.module.css";
+
 
 class LoginPage extends Component {
   constructor() {
@@ -51,6 +53,10 @@ class LoginPage extends Component {
 
   render() {
     return (
+      <div>
+    <div className="header" id="page_header">
+      <h1>Login</h1>
+    </div>
       <form onSubmit={this.submitHandler}>
         <h1 className={styles.rently}>Rently</h1>
         <h2 className={styles.login}> Login </h2>
@@ -81,6 +87,7 @@ class LoginPage extends Component {
           <button onClick={this.routeChange2}>Create An Account?</button>
         </div>
       </form>
+      </div>
     );
   }
 }

@@ -13,6 +13,7 @@ import Categories from './Categories';
 import Category from './Category';
 import PostPage from './PostPage';
 import DisplayPage from './DisplayPage';
+import EditListing from "./EditListing";
 
 function App() {
   return (
@@ -76,12 +77,19 @@ function App() {
         <Route path="/PostPage" exact={true}>
           <PostPage />
         </Route>
+
         <Route path="/Category" exact={true}>
           <Category />
         </Route>
+
         <Route path="/DisplayPage" exact={true}>
           <DisplayPage />
         </Route>
+
+        <Route path="/EditListing" exact={false}>
+          <EditListing className ="EditListing"/>
+        </Route>
+
       </Switch>
     </div>
   );
