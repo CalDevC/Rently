@@ -1,6 +1,6 @@
-import React, {Component} from "react";
-import { Link } from "react-router-dom";
-import classes from "../CSS/MainNavigation.module.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import classes from '../CSS/MainNavigation.module.css';
 import "../CSS/MainNavigation.module.css";
 
 class MainNavigation extends Component {
@@ -26,6 +26,12 @@ class MainNavigation extends Component {
             </li>
             <li>
               <Link to="/Categories">Search By Category</Link>
+            </li>
+            <li>
+              <Link to="/PostPage">Post New Item</Link>
+            </li>
+            <li>
+              <Link to="/DisplayPage">Display</Link>
             </li>
             <li>
               <Link to="/CreateListing">List An Item</Link>
