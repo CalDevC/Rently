@@ -53,9 +53,9 @@ class MainNavigation extends Component {
                   <li>
                      <Link to="/CreateListing">List An Item</Link>
                   </li>
-                  <li>
+                  {/* <li>
                      <Link to="/DisplayPage">Display</Link>
-                  </li>
+                  </li> */}
                </ul>
             </nav>
          </header>
