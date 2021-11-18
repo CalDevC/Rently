@@ -1,5 +1,6 @@
 import { Component } from "react";
 import React from "react";
+import "../CSS/Registration.module.css";
 
 class Registration extends Component {
   constructor() {
@@ -46,32 +47,35 @@ class Registration extends Component {
         </div>
         <div>
           <form onSubmit={this.submitHandler}>
-          
-            <label>Enter Your Street Adress</label>
+            <div>
+            <label>Enter Your Street Adress:</label>
             <input
               type="text"
               id="input_address"
               required
               name="adress"
             />
-            <br />
-            <label>Enter Your 5 Digit Zip Code</label>
+            </div>
+            <div>
+            <label>Enter Your 5 Digit Zip Code:</label>
             <input
               type="text"
               id="input_zip"
               required
               name="zip"
             />
-            <br />
-            <label>Enter Your Date of Birth</label>
+            </div>
+            <div>
+            <label>Enter Your Date of Birth:</label>
             <input
               type="Text"
               id="input_birth"
               required
               name="birth"
             />
-            <br />
-            <label>Enter a Username</label>
+            </div>
+            <div>
+            <label>Enter a Username:</label>
             <input
               type="text"
               id="input_username"
@@ -79,8 +83,9 @@ class Registration extends Component {
               name="username"
               ref={(node) => (this.usernameInputRef = node)}
             />
-            <br />
-            <label>Email</label>
+            </div>
+            <div>
+            <label>Email:</label>
             <input
               type="email"
               id="input_email"
@@ -88,8 +93,9 @@ class Registration extends Component {
               name="email"
               ref={(node) => (this.emailInputRef = node)}
             />
-            <br />
-            <label>Enter Password</label>
+            </div>
+            <div>
+            <label>Enter Password:</label>
             <input
               type="password"
               id="input_password"
@@ -97,14 +103,16 @@ class Registration extends Component {
               name="password"
               ref={(node) => (this.usernameInputRef = node)}
             />
-            <br />
-            <label>Confirm Password</label>
+            </div>
+            <div>
+            <label>Confirm Password:</label>
             <input
               type="password"
               id="input_passwordConfirm"
               required
               name="cpassword"
             />
+            </div>
             <button type="submit" id="submit">
               Create Account
             </button>

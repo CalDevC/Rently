@@ -1,16 +1,19 @@
-import { Route, Switch} from "react-router-dom";
-import "../CSS/App.css";
-import React from "react";
-import AboutMe from "./AboutMe";
-import MainNav from "./MainNav";
-import AboutNav from "./AboutNav";
+import { Route, Switch } from 'react-router-dom';
+import '../CSS/App.css';
+import React from 'react';
+import AboutMe from './AboutMe';
+import MainNav from './MainNav';
+import AboutNav from './AboutNav';
 
-import HomePage from "./HomePage";
-import LoginPage from "./LoginPage";
-import Registration from "./Registration";
-import ProfilePage from "./ProfilePage";
-import Categories from "./Categories";
-import Category from "./Category";
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
+import Registration from './Registration';
+import ProfilePage from './ProfilePage';
+import Categories from './Categories';
+import Category from './Category';
+import PostPage from './PostPage';
+import DisplayPage from './DisplayPage';
+import EditListing from "./EditListing";
 
 function App() {
   return (
@@ -71,8 +74,20 @@ function App() {
           <Categories className="Categories" />
         </Route>
 
-        <Route path="/Categories" exact={false}>
+        <Route path="/PostPage" exact={true}>
+          <PostPage />
+        </Route>
+
+        <Route path="/Category" exact={true}>
           <Category />
+        </Route>
+
+        <Route path="/DisplayPage" exact={true}>
+          <DisplayPage />
+        </Route>
+
+        <Route path="/EditListing" exact={false}>
+          <EditListing className ="EditListing"/>
         </Route>
 
       </Switch>
