@@ -1,13 +1,10 @@
-.mainCard{
+.mainCard {
   justify-self: center;
-  background-color: rgb(235, 231, 231);
+  background-color: rgb(171, 194, 171);
   max-width: fit-content;
   color: black;
-  border: 2.5px solid rgb(98, 199, 140); 
+  border: 2.5px solid rgb(98, 199, 140);
   border-radius: 5px;
   text-align: center;
   padding: 0.1rem 0.1rem 0.1rem 0.1rem;
 }
-
-
-

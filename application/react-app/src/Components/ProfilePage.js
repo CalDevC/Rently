@@ -46,59 +46,57 @@ class ProfilePage extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.profiles}>
         <div className="header" id="page_header">
-          <h1>Update Profile</h1>
+          <h1 className={styles.profile}>Update Profile</h1>
         </div>
-      <form onSubmit={this.submitHandler}>
-        <h1 className={styles.rently}>Rently</h1>
-        <h2 className={styles.profile}> Your Profile </h2>
-        <div>
-          <label htmlFor="Username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            required
-            id="title"
-            ref={(node) => (this.usernameInputRef = node)}
-          />
-        </div>
-        <div>
-          <label htmlFor="Password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            required
-            id="title"
-            ref={(node) => (this.passwordInputRef = node)}
-          />
-        </div>
-        <div>
-          <label htmlFor="Name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            required
-            id="title"
-            ref={(node) => (this.nameInputRef = node)}
-          />
-        </div>
-        <div>
-          <label htmlFor="Email">Email:</label>
-          <input
-            type="text"
-            id="email"
-            required
-            id="title"
-            ref={(node) => (this.emailInputRef = node)}
-          />
-        </div>
-        <label htmlFor="Picture">Picture</label>
-        <div>{/* <img src="images/Member1.jpg" width={200} alt="" /> */}</div>
-        <div>
-          <button>Save</button>
-        </div>
-      </form>
+        <form onSubmit={this.submitHandler}>
+          <div>
+            <label htmlFor="Username">Username:</label>
+            <input
+              type="text"
+              id="username"
+              required
+              id="title"
+              ref={(node) => (this.usernameInputRef = node)}
+            />
+          </div>
+          <div>
+            <label htmlFor="Password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              required
+              id="title"
+              ref={(node) => (this.passwordInputRef = node)}
+            />
+          </div>
+          <div>
+            <label htmlFor="Name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              required
+              id="title"
+              ref={(node) => (this.nameInputRef = node)}
+            />
+          </div>
+          <div>
+            <label htmlFor="Email">Email:</label>
+            <input
+              type="text"
+              id="email"
+              required
+              id="title"
+              ref={(node) => (this.emailInputRef = node)}
+            />
+          </div>
+          <label htmlFor="Picture">Picture</label>
+          <div>{/* <img src="images/Member1.jpg" width={200} alt="" /> */}</div>
+          <div>
+            <button>Save</button>
+          </div>
+        </form>
       </div>
     );
   }

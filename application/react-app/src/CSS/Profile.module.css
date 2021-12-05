@@ -4,4 +4,8 @@
 
 .profile {
   text-align: center;
+  color: rgb(14, 56, 38);
+}
+body {
+  background-color: #6eac95;
 }
