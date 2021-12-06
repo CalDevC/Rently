@@ -4,9 +4,9 @@ ul {
   list-style-type: none;
 }
 li {
-  border: 2.5px solid rgb(98, 199, 140);
+  border: 3px solid rgb(2, 15, 8);
   border-radius: 5px;
-  background-color: rgb(43, 236, 120);
+  background-color: rgb(170, 230, 194);
 }
 a {
   text-decoration: none;
