@@ -1,3 +1,6 @@
+.rently {
+  color: rgb(14, 56, 38);
+}
 form {
   border: 3px solid rgb(17, 51, 37);
   border-radius: 5px;
@@ -18,13 +21,14 @@ input {
   justify-content: right;
   left: 13%;
 }
+button {
+  color: rgb(49, 110, 21);
+  background: rgb(191, 218, 192);
+}
 
 .create {
   color: rgb(14, 56, 38);
 }
 .username {
   padding: 2px;
-}
-.head {
-  color: rgb(14, 56, 38);
 }

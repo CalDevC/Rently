@@ -1,6 +1,6 @@
-body{
-  background-color:#222121;
-  color:#d3d3d3
+body {
+  background-color: #222121;
+  color: #d3d3d3;
 }
 
 .form {
@@ -49,6 +49,10 @@ body{
   border-color: #a50e48;
 }
 
-input{
+input {
   background-color: lightgrey;
+}
+
+.rently {
+  color: rgb(14, 56, 38);
 }
