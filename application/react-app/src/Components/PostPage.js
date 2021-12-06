@@ -57,66 +57,68 @@ class PostPage extends Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
-        <h1 className={styles.rently}>Rently</h1>
-        <div>
-          <label htmlFor="Equipment">Equipment Name:</label>
-          <input
-            type="text"
-            id="equipment"
-            required
-            ref={(node) => (this.equipmentInputRef = node)}
-          />
-        </div>
-        <div>
-          <label htmlFor="Price">Price:</label>
-          <input
-            type="text"
-            id="price"
-            required
-            ref={(node) => (this.priceInputRef = node)}
-          />
-        </div>
-        <div>
-          <label htmlFor="Deposit">Deposit Fee:</label>
-          <input
-            type="text"
-            id="deposit"
-            required
-            ref={(node) => (this.depositFeeInputRef = node)}
-          />
-        </div>
-        <div>
-          <label htmlFor="Location">Location:</label>
-          <input
-            type="text"
-            id="location"
-            required
-            ref={(node) => (this.locationInputRef = node)}
-          />
-        </div>
-        <div>
-          <label htmlFor="Delivery">Offer Delivery:</label>
-          <input
-            type="text"
-            id="delivery"
-            required
-            ref={(node) => (this.deliveryInputRef = node)}
-          />
-        </div>
-        <div>
-          <label htmlFor="Description">Description:</label>
-          <input
-            type="text"
-            id="description"
-            required
-            ref={(node) => (this.descriptionInputRef = node)}
-          />
-        </div>
-        <div>
-          <button onClick={this.submitHandler}>Post</button>
-        </div>
-      </form>
+      <div>
+        <h1 className={styles.create}>List an Equipment </h1>
+        <form onSubmit={this.submitHandler}>
+          <div className={styles.username}>
+            <label htmlFor="Equipment">Equipment Name:</label>
+            <input
+              type="text"
+              id="equipment"
+              required
+              ref={(node) => (this.equipmentInputRef = node)}
+            />
+          </div>
+          <div className={styles.username}>
+            <label htmlFor="Price">Price:</label>
+            <input
+              type="text"
+              id="price"
+              required
+              ref={(node) => (this.priceInputRef = node)}
+            />
+          </div>
+          <div className={styles.username}>
+            <label htmlFor="Deposit">Deposit Fee:</label>
+            <input
+              type="text"
+              id="deposit"
+              required
+              ref={(node) => (this.depositFeeInputRef = node)}
+            />
+          </div>
+          <div className={styles.username}>
+            <label htmlFor="Location">Location:</label>
+            <input
+              type="text"
+              id="location"
+              required
+              ref={(node) => (this.locationInputRef = node)}
+            />
+          </div>
+          <div className={styles.username}>
+            <label htmlFor="Delivery">Offer Delivery:</label>
+            <input
+              type="text"
+              id="delivery"
+              required
+              ref={(node) => (this.deliveryInputRef = node)}
+            />
+          </div>
+          <div className={styles.username}>
+            <label htmlFor="Description">Description:</label>
+            <input
+              type="text"
+              id="description"
+              required
+              ref={(node) => (this.descriptionInputRef = node)}
+            />
+          </div>
+          <div>
+            <button onClick={this.submitHandler}>Post</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

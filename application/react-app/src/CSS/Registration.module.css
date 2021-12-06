@@ -1,21 +1,30 @@
 form {
   border: 3px solid rgb(17, 51, 37);
   border-radius: 5px;
-  margin: 2rem auto;
+  margin: 3rem auto;
   display: flex;
-  background: rgb(255, 251, 251);
+  background: rgb(191, 218, 192);
   flex-direction: column;
   max-width: fit-content;
-  color: rgb(14, 56, 38);
+  color: #6eac95;
+  padding: 50px;
+  position: relative;
 }
 label {
   text-justify: left;
-  color: black;
+  color: rgb(49, 110, 21);
 }
 input {
   justify-content: right;
+  left: 13%;
 }
 
 .create {
+  color: rgb(14, 56, 38);
+}
+.username {
+  padding: 2px;
+}
+.head {
   color: rgb(14, 56, 38);
 }

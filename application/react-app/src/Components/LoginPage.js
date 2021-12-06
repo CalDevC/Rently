@@ -66,7 +66,7 @@ class LoginPage extends Component {
           <h1 className={styles.head}>Login</h1>
         </div>
         <form onSubmit={this.submitHandler}>
-          <div>
+          <div className={styles.username}>
             <label htmlFor="Username">Username:</label>
             <input
               type="text"
@@ -76,7 +76,7 @@ class LoginPage extends Component {
               ref={(node) => (this.usernameInputRef = node)}
             />
           </div>
-          <div>
+          <div className={styles.username}>
             <label htmlFor="Password">Password:</label>
             <input
               type="password"
@@ -86,10 +86,10 @@ class LoginPage extends Component {
               ref={(node) => (this.passwordInputRef = node)}
             />
           </div>
-          <div>
+          <div className={styles.username}>
             <button>Log in</button>
           </div>
-          <div>
+          <div className={styles.username}>
             <button onClick={this.routeChange2}>Create An Account?</button>
           </div>
         </form>

@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import React from 'react';
 import classes from '../CSS/HomePage.module.css';
-import styles from '../CSS/HomePage.module.css';
+import styles from '../CSS/Registration.module.css';
 
 class HomePage extends Component {
   constructor() {

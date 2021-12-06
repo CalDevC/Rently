@@ -54,7 +54,7 @@ class Registration extends Component {
 
         <div>
           <form onSubmit={this.submitHandler}>
-            <div>
+            <div className={styles.username}>
               <label className={styles.name}>Username:</label>
               <input
                 type="text"
@@ -65,7 +65,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div>
+            <div className={styles.username}>
               <label>Email:</label>
               <input
                 type="email"
@@ -76,7 +76,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div>
+            <div className={styles.username}>
               <label>Password:</label>
               <input
                 type="password"
@@ -87,7 +87,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div>
+            <div className={styles.username}>
               <label>Confirm Password:</label>
               <input
                 type="password"
@@ -97,7 +97,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div>
+            <div className={styles.username}>
               <label>Date of Birth:</label>
               <input
                 type="Text"
@@ -108,7 +108,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div>
+            <div className={styles.username}>
               <label>Street Address:</label>
               <input
                 type="text"
@@ -119,7 +119,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div>
+            <div className={styles.username}>
               <label>Zip Code:</label>
               <input
                 type="text"
@@ -129,15 +129,16 @@ class Registration extends Component {
                 ref={(node) => (this.zipCodeInputRef = node)}
               />
             </div>
-
-            <button type="submit" id="submit">
-              Create Account
-            </button>
-
-            <button type="cancel" id="cancel">
-              Cancel
-            </button>
-
+            <div className={styles.create}>
+              <button type="submit" id="submit">
+                Create Account
+              </button>
+            </div>
+            <div className={styles.create}>
+              <button type="cancel" id="cancel">
+                Cancel
+              </button>
+            </div>
             <div id="error"></div>
             <div id="success"></div>
           </form>

@@ -51,7 +51,7 @@ class ProfilePage extends Component {
           <h1 className={styles.profile}>Update Profile</h1>
         </div>
         <form onSubmit={this.submitHandler}>
-          <div>
+          <div className={styles.username}>
             <label htmlFor="Username">Username:</label>
             <input
               type="text"
@@ -61,7 +61,7 @@ class ProfilePage extends Component {
               ref={(node) => (this.usernameInputRef = node)}
             />
           </div>
-          <div>
+          <div className={styles.username}>
             <label htmlFor="Password">Password:</label>
             <input
               type="password"
@@ -71,7 +71,7 @@ class ProfilePage extends Component {
               ref={(node) => (this.passwordInputRef = node)}
             />
           </div>
-          <div>
+          <div className={styles.username}>
             <label htmlFor="Name">Name:</label>
             <input
               type="text"
@@ -81,7 +81,7 @@ class ProfilePage extends Component {
               ref={(node) => (this.nameInputRef = node)}
             />
           </div>
-          <div>
+          <div className={styles.username}>
             <label htmlFor="Email">Email:</label>
             <input
               type="text"
@@ -93,7 +93,7 @@ class ProfilePage extends Component {
           </div>
           <label htmlFor="Picture">Picture</label>
           <div>{/* <img src="images/Member1.jpg" width={200} alt="" /> */}</div>
-          <div>
+          <div className={styles.username}>
             <button>Save</button>
           </div>
         </form>
