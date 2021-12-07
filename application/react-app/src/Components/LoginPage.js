@@ -51,9 +51,14 @@ class LoginPage extends Component {
   }
 
   routeChange() {
-    window.alert(this.usernameInputRef.value + ' is login in');
-    let path = `/Categories`;
-    this.props.history.push(path);
+    if (this.state.data.status == 'bad') {
+      window.alert('You entered a wrong username or password, try it again');
+    } else if (this.state.data.status == 'ok') {
+      window.alert(this.usernameInputRef.value + ' is login in');
+    }
+
+    // let path = `/Categories`;
+    // this.props.history.push(path);
   }
   routeChange2() {
     let path = `/Registration`;
