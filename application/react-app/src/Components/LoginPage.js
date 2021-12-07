@@ -51,14 +51,14 @@ class LoginPage extends Component {
   }
 
   routeChange() {
-    let path = `/`;
+    window.alert('user is logined');
+    let path = `/Categories`;
     this.props.history.push(path);
   }
   routeChange2() {
     let path = `/Registration`;
     this.props.history.push(path);
   }
-
   render() {
     return (
       <div>
@@ -87,7 +87,7 @@ class LoginPage extends Component {
             />
           </div>
           <div className={styles.username}>
-            <button>Log in</button>
+            <button onClick={this.routeChange}>Log in</button>
           </div>
           <div className={styles.username}>
             <button onClick={this.routeChange2}>Create An Account?</button>
