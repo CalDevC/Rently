@@ -61,63 +61,43 @@ class PostPage extends Component {
     return (
       <form onSubmit={this.submitHandler}>
         <h1>Rently</h1>
+
         <div>
           <label htmlFor="Equipment">Equipment Name:</label>
-          <input
-            type="text"
-            id="equipment"
-            required
-            ref={(node) => (this.equipmentInputRef = node)}
+          <input type="text" id="equipment" required ref={(node) => (this.equipmentInputRef = node)}
           />
         </div>
+
         <div>
           <Dropdown ref={(node) => (this.categoryInputRef = node)} />
         </div>
+
         <div>
           <label htmlFor="Price">Price:</label>
-          <input
-            type="text"
-            id="price"
-            required
-            ref={(node) => (this.priceInputRef = node)}
-          />
+          <input type="text" id="price" required ref={(node) => (this.priceInputRef = node)} />
         </div>
+
         <div>
           <label htmlFor="Deposit">Deposit Fee:</label>
-          <input
-            type="text"
-            id="deposit"
-            required
-            ref={(node) => (this.depositFeeInputRef = node)}
-          />
+          <input type="text" id="deposit" required ref={(node) => (this.depositFeeInputRef = node)} />
         </div>
+
         <div>
           <label htmlFor="Location">Location:</label>
-          <input
-            type="text"
-            id="location"
-            required
-            ref={(node) => (this.locationInputRef = node)}
+          <input type="text" id="location" required ref={(node) => (this.locationInputRef = node)}
           />
         </div>
+
         <div>
           <label htmlFor="Delivery">Offer Delivery:</label>
-          <input
-            type="text"
-            id="delivery"
-            required
-            ref={(node) => (this.deliveryInputRef = node)}
-          />
+          <input type="text" id="delivery" required ref={(node) => (this.deliveryInputRef = node)} />
         </div>
+
         <div>
           <label htmlFor="Description">Description:</label>
-          <input
-            type="text"
-            id="description"
-            required
-            ref={(node) => (this.descriptionInputRef = node)}
-          />
+          <input type="text" id="description" required ref={(node) => (this.descriptionInputRef = node)} />
         </div>
+
         <div>
           <button onClick={this.submitHandler}>Post</button>
         </div>
