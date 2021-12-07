@@ -6,17 +6,18 @@ const db = require('../config/database');
 router.use(express.json());
 
 router.post('/addPost', (req, res) => {
+  //Interpret delivery checkbox
+  const delivery = req.body.delivery ? 1 : 0;
+
   const description = req.body.description;
   const price = req.body.price;
-  const penalty = req.body.penity;
+  const penalty = req.body.penalty;
   const equipment = req.body.equipment;
   const deposit = req.body.depositFee;
   const location = req.body.location;
   const user = req.body.user;
   const category = req.body.category;
 
-  //Interpret delivery checkbox
-  const delivery = req.body.delivery ? 1 : 0;
 
   let query = `INSERT INTO Rental (startDay, endDay, RegisteredUser_ID, EquipmentCategory_ID, Price, delivery, description, imgURL, title) VALUES ('2021-05-05 05:05:00', '2021-05-06 05:05:00', (SELECT RegisteredUser_ID FROM Register_User WHERE userName = '${user}'), (SELECT equipmentCategory_ID FROM Equipment_Category WHERE description = '${category}'), '${price}', '${delivery}', '${description}', '', '${equipment}');`;
 
@@ -25,7 +26,6 @@ router.post('/addPost', (req, res) => {
   db.query(query)
     .then(([results, fields]) => {
       console.log(results);
-      // res.redirect('/');
       //Send the data to the frontend
       res.send({
         status: 'ok',
