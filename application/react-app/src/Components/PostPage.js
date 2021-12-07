@@ -25,7 +25,7 @@ class PostPage extends Component {
 
   submitHandler(event) {
     event.preventDefault();
-    console.log(this.categoryInputRef.state.value)
+    console.log(this.deliveryInputRef.checked)
     fetch('/api/posts/addPost', {
       method: 'POST',
       headers: {
@@ -38,7 +38,7 @@ class PostPage extends Component {
         price: this.priceInputRef.value,
         depositFee: this.depositFeeInputRef.value,
         location: this.locationInputRef.value,
-        delivery: this.deliveryInputRef.value,
+        delivery: this.deliveryInputRef.checked,
         description: this.descriptionInputRef.value
       }),
     })
@@ -73,12 +73,12 @@ class PostPage extends Component {
         </div>
 
         <div>
-          <label htmlFor="Price">Price:</label>
+          <label htmlFor="Price">Rental Price $</label>
           <input type="text" id="price" required ref={(node) => (this.priceInputRef = node)} />
         </div>
 
         <div>
-          <label htmlFor="Deposit">Deposit Fee:</label>
+          <label htmlFor="Deposit">Securoty Deposit $</label>
           <input type="text" id="deposit" required ref={(node) => (this.depositFeeInputRef = node)} />
         </div>
 
@@ -89,8 +89,8 @@ class PostPage extends Component {
         </div>
 
         <div>
-          <label htmlFor="Delivery">Offer Delivery:</label>
-          <input type="text" id="delivery" required ref={(node) => (this.deliveryInputRef = node)} />
+          <label htmlFor="Delivery">Offer Delivery?</label>
+          <input type="checkbox" id="delivery" required ref={(node) => (this.deliveryInputRef = node)} />
         </div>
 
         <div>

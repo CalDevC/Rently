@@ -12,9 +12,11 @@ router.post('/addPost', (req, res) => {
   const equipment = req.body.equipment;
   const deposit = req.body.depositFee;
   const location = req.body.location;
-  const delivery = req.body.delivery;
   const user = req.body.user;
   const category = req.body.category;
+
+  //Interpret delivery checkbox
+  const delivery = req.body.delivery ? 1 : 0;
 
   let query = `INSERT INTO Rental (startDay, endDay, RegisteredUser_ID, EquipmentCategory_ID, Price, delivery, description, imgURL, title) VALUES ('2021-05-05 05:05:00', '2021-05-06 05:05:00', (SELECT RegisteredUser_ID FROM Register_User WHERE userName = '${user}'), (SELECT equipmentCategory_ID FROM Equipment_Category WHERE description = '${category}'), '${price}', '${delivery}', '${description}', '', '${equipment}');`;
 
