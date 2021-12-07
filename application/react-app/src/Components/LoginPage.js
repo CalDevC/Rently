@@ -51,7 +51,7 @@ class LoginPage extends Component {
   }
 
   routeChange() {
-    window.alert('user is logined');
+    window.alert(this.usernameInputRef.value + ' is login in');
     let path = `/Categories`;
     this.props.history.push(path);
   }
