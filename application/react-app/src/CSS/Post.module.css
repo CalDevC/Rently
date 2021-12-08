@@ -6,7 +6,8 @@ form {
   border-radius: 5px;
   margin: 3rem auto;
   display: flex;
-  background: rgb(191, 218, 192);
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(216,255,231,1) 94%);
   flex-direction: column;
   max-width: fit-content;
   color: #6eac95;

@@ -1,8 +1,7 @@
-body {
-  background-color: #222121;
-  color: #d3d3d3;
-}
 
+h1{
+  color: rgb(14, 56, 38);
+}
 .form {
   padding: 1rem;
 }
@@ -55,4 +54,8 @@ input {
 
 .rently {
   color: rgb(14, 56, 38);
+}
+
+.cardHolder{
+  background-color: black;
 }

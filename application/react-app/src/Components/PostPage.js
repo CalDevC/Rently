@@ -72,7 +72,7 @@ class PostPage extends Component {
       <div>
         <h1 className={styles.create}>Create Your Listing Here.</h1>
         <form onSubmit={this.submitHandler}>
-          <h1>Rently</h1>
+    
 
           <div className={styles.username}>
             <label htmlFor="Equipment">Equipment Name:</label>
