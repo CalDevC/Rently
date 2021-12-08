@@ -24,7 +24,7 @@ class EditListing extends Component{
             return (
               <div>
                 <div className="header" id="page_header">
-                  <h1>Edit Listing</h1>
+                  <h1>Create Your Listing Here.</h1>
                 </div>
                 <div>
                   <form onSubmit={this.submitHandler}>

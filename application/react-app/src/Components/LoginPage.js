@@ -63,7 +63,7 @@ class LoginPage extends Component {
     return (
       <div>
         <div className="header" id="page_header">
-          <h1 className={styles.head}>Login</h1>
+          <h1 className={styles.head}>Hello! Login Here.</h1>
         </div>
         <form onSubmit={this.submitHandler}>
           <div className={styles.username}>

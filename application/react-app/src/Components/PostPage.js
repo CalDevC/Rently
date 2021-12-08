@@ -58,7 +58,7 @@ class PostPage extends Component {
   render() {
     return (
       <div>
-        <h1 className={styles.create}>List an Equipment </h1>
+        <h1 className={styles.create}>Create Your Listing Here.</h1>
         <form onSubmit={this.submitHandler}>
           <div className={styles.username}>
             <label htmlFor="Equipment">Equipment Name:</label>

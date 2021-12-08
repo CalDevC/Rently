@@ -1,13 +1,29 @@
-ul {
+nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   list-style-type: none;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  background: rgb(42,128,99);
+  background: linear-gradient(90deg, rgba(42,128,99,1) 0%, rgba(37,108,63,1) 40%, rgba(36,112,66,1) 88%, rgba(0,255,158,1) 100%);
 }
-li {
-  border: 3px solid rgb(2, 15, 8);
-  border-radius: 5px;
-  background-color: rgb(170, 230, 194);
+h1{
+  color:antiquewhite;
+  justify-self: start;
+  margin-left: 30px;
 }
+
+ul{
+  display:grid;
+  grid-template-columns: repeat(6, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: end;
+  margin-right: end;
+}
+
 a {
   text-decoration: none;
   color: black;

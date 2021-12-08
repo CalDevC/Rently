@@ -35,7 +35,7 @@ class HomePage extends Component {
     let data = this.state.data;
     return (
       <div>
-        <h1 className={styles.rently}>Rently</h1>
+        <h1 className={styles.rently}>Your One-Of-A-Kind Rental Experience Starts Here.</h1>
       </div>
     );
   }
