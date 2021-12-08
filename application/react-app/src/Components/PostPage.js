@@ -15,6 +15,8 @@ class PostPage extends Component {
     this.descriptionInputRef = React.createRef();
     this.categoryInputRef = React.createRef();
     this.penaltyFeeInputRef = React.createRef();
+    this.startInputRef = React.createRef();
+    this.endInputRef = React.createRef();
 
     this.submitHandler = this.submitHandler.bind(this);
     this.routeChange = this.routeChange.bind(this);
@@ -30,7 +32,7 @@ class PostPage extends Component {
 
   submitHandler(event) {
     event.preventDefault();
-    console.log(this.deliveryInputRef.checked)
+    console.log(this.dateInputRef.props)
     fetch('/api/posts/addPost', {
       method: 'POST',
       headers: {
@@ -45,7 +47,9 @@ class PostPage extends Component {
         penalty: this.penaltyFeeInputRef.value,
         location: this.locationInputRef.value,
         delivery: this.deliveryInputRef.checked,
-        description: this.descriptionInputRef.value
+        description: this.descriptionInputRef.value,
+        start: this.startInputRef.value,
+        end: this.endInputRef.value
       }),
     })
       .then((response) => response.text())
@@ -107,6 +111,22 @@ class PostPage extends Component {
         <div>
           <label htmlFor="Description">Description:</label>
           <input type="text" id="description" required ref={(node) => (this.descriptionInputRef = node)} />
+        </div>
+
+        <div>
+          <label htmlFor="Description">Description:</label>
+          <input type="text" id="description" required ref={(node) => (this.descriptionInputRef = node)} />
+        </div>
+
+        <div>
+          <h4>Rental Times</h4>
+          <label htmlFor="start">Start Date:</label>
+          <input type="text" id="startEnd" required ref={(node) => (this.startInputRef = node)} />
+        </div>
+
+        <div>
+          <label htmlFor="end">End Date:</label>
+          <input type="text" id="endDate" required ref={(node) => (this.endInputRef = node)} />
         </div>
 
         <div>

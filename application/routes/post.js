@@ -17,9 +17,11 @@ router.post('/addPost', (req, res) => {
   const location = req.body.location;
   const user = req.body.user;
   const category = req.body.category;
+  const start = req.body.start;
+  const end = req.body.end;
 
 
-  let query = `INSERT INTO Rental (startDay, endDay, RegisteredUser_ID, EquipmentCategory_ID, Price, delivery, description, imgURL, title) VALUES ('2021-05-05 05:05:00', '2021-05-06 05:05:00', (SELECT RegisteredUser_ID FROM Register_User WHERE userName = '${user}'), (SELECT equipmentCategory_ID FROM Equipment_Category WHERE description = '${category}'), '${price}', '${delivery}', '${description}', '', '${equipment}');`;
+  let query = `INSERT INTO Rental (startDay, endDay, RegisteredUser_ID, EquipmentCategory_ID, Price, delivery, description, imgURL, title, securityDeposit, penalty, location) VALUES ('${start} 00:00:00', '${end} 23:59:00', (SELECT RegisteredUser_ID FROM Register_User WHERE userName = '${user}'), (SELECT equipmentCategory_ID FROM Equipment_Category WHERE description = '${category}'), '${price}', '${delivery}', '${description}', '', '${equipment}', '${deposit}', '${penalty}', '${location}');`;
 
 
   // Make query for data
