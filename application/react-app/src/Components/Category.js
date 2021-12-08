@@ -32,26 +32,32 @@ class Category extends Component {
 
   //Currently displays the description but will enentually display Card componenets that show post thumbnails
   generatePostCards() {
-    let postList = this.state.posts;
-    let descList = [];
+    if (this.state.posts[0]) {
+      let postList = this.state.posts[0].results;
+      let descList = [];
+      console.log("POST LIST: ", postList);
 
-    //For each post
-    for (let i in postList) {
-      let post = postList[i];
-      console.log('POST BELOW: ');
-      console.log(post);
-      descList[i] = (
-        <Card
-          key={post.results.Rental_ID}
-          title={post.results.description}
-          id={post.results.Rental_ID}
-        />
-      );
+      //For each post
+      for (let i in postList) {
+        let post = postList[i];
+        console.log('POST BELOW: ');
+        console.log(post);
+        descList[i] = (
+          <Card
+            key={post.Rental_ID}
+            title={post.description}
+            id={post.Rental_ID}
+          />
+        );
+      }
+
+      console.log(descList);
+
+      return descList;
     }
 
-    console.log(descList);
+    return <h5>Loading posts...</h5>
 
-    return descList;
   }
 
   render() {
