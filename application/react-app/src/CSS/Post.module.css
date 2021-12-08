@@ -1,13 +1,5 @@
 .rently {
-  text-align: left;
-}
-
-.profile {
-  text-align: center;
   color: rgb(14, 56, 38);
-}
-body {
-  background-color: #6eac95;
 }
 form {
   border: 3px solid rgb(17, 51, 37);
@@ -20,6 +12,22 @@ form {
   color: #6eac95;
   padding: 50px;
   position: relative;
+}
+label {
+  text-justify: left;
+  color: rgb(49, 110, 21);
+}
+input {
+  justify-content: right;
+  left: 13%;
+}
+button {
+  color: rgb(49, 110, 21);
+  background: rgb(191, 218, 192);
+}
+
+.create {
+  color: rgb(14, 56, 38);
 }
 .username {
   padding: 2px;

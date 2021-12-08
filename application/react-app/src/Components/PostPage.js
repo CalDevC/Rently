@@ -2,6 +2,7 @@ import { Component } from 'react';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Dropdown from './Dropdown';
+import styles from '../CSS/Post.module.css';
 
 class PostPage extends Component {
   constructor() {
@@ -27,7 +28,6 @@ class PostPage extends Component {
         msg: '',
       },
     };
-
   }
 
   submitHandler(event) {
@@ -69,70 +69,73 @@ class PostPage extends Component {
 
   render() {
     return (
-      <form onSubmit={this.submitHandler}>
-        <h1>Rently</h1>
+      <div>
+        <h1 className={styles.create}>Create Your Listing Here.</h1>
+        <form onSubmit={this.submitHandler}>
+          <h1>Rently</h1>
 
-        <div>
-          <label htmlFor="Equipment">Equipment Name:</label>
-          <input type="text" id="equipment" required ref={(node) => (this.equipmentInputRef = node)}
-          />
-        </div>
+          <div className={styles.username}>
+            <label htmlFor="Equipment">Equipment Name:</label>
+            <input type="text" id="equipment" required ref={(node) => (this.equipmentInputRef = node)}
+            />
+          </div>
 
-        <div>
-          <Dropdown ref={(node) => (this.categoryInputRef = node)} />
-        </div>
+          <div className={styles.username}>
+            <Dropdown ref={(node) => (this.categoryInputRef = node)} />
+          </div>
 
-        <div>
-          <label htmlFor="Price">Rental Price $</label>
-          <input type="text" id="price" required ref={(node) => (this.priceInputRef = node)} />
-        </div>
+          <div className={styles.username}>
+            <label htmlFor="Price">Rental Price $</label>
+            <input type="text" id="price" required ref={(node) => (this.priceInputRef = node)} />
+          </div>
 
-        <div>
-          <label htmlFor="Deposit">Security Deposit $</label>
-          <input type="text" id="deposit" required ref={(node) => (this.depositFeeInputRef = node)} />
-        </div>
+          <div className={styles.username}>
+            <label htmlFor="Deposit">Security Deposit $</label>
+            <input type="text" id="deposit" required ref={(node) => (this.depositFeeInputRef = node)} />
+          </div>
 
-        <div>
-          <label htmlFor="Penalty">Penalty for damages $</label>
-          <input type="text" id="penalty" ref={(node) => (this.penaltyFeeInputRef = node)} />
-        </div>
+          <div className={styles.username}>
+            <label htmlFor="Penalty">Penalty for damages $</label>
+            <input type="text" id="penalty" ref={(node) => (this.penaltyFeeInputRef = node)} />
+          </div>
 
-        <div>
-          <label htmlFor="Location">Pick-up Location:</label>
-          <input type="text" id="location" required ref={(node) => (this.locationInputRef = node)}
-          />
-        </div>
+          <div className={styles.username}>
+            <label htmlFor="Location">Pick-up Location:</label>
+            <input type="text" id="location" required ref={(node) => (this.locationInputRef = node)}
+            />
+          </div>
 
-        <div>
-          <label htmlFor="Delivery">Offer Delivery?</label>
-          <input type="checkbox" id="delivery" required ref={(node) => (this.deliveryInputRef = node)} />
-        </div>
+          <div className={styles.username}>
+            <label htmlFor="Delivery">Offer Delivery?</label>
+            <input type="checkbox" id="delivery" required ref={(node) => (this.deliveryInputRef = node)} />
+          </div>
 
-        <div>
-          <label htmlFor="Description">Description:</label>
-          <input type="text" id="description" required ref={(node) => (this.descriptionInputRef = node)} />
-        </div>
+          <div className={styles.username}>
+            <label htmlFor="Description">Description:</label>
+            <input type="text" id="description" required ref={(node) => (this.descriptionInputRef = node)} />
+          </div>
 
-        <div>
-          <label htmlFor="Description">Description:</label>
-          <input type="text" id="description" required ref={(node) => (this.descriptionInputRef = node)} />
-        </div>
+          <div className={styles.username}>
+            <label htmlFor="Description">Description:</label>
+            <input type="text" id="description" required ref={(node) => (this.descriptionInputRef = node)} />
+          </div>
 
-        <div>
-          <h4>Rental Times</h4>
-          <label htmlFor="start">Start Date:</label>
-          <input type="text" id="startEnd" required ref={(node) => (this.startInputRef = node)} />
-        </div>
+          <div className={styles.username}>
+            <h4>Rental Times</h4>
+            <label htmlFor="start">Start Date:</label>
+            <input type="text" id="startEnd" required ref={(node) => (this.startInputRef = node)} />
+          </div>
 
-        <div>
-          <label htmlFor="end">End Date:</label>
-          <input type="text" id="endDate" required ref={(node) => (this.endInputRef = node)} />
-        </div>
+          <div className={styles.username}>
+            <label htmlFor="end">End Date:</label>
+            <input type="text" id="endDate" required ref={(node) => (this.endInputRef = node)} />
+          </div>
 
-        <div>
-          <button onClick={this.submitHandler}>Post</button>
-        </div>
-      </form>
+          <div>
+            <button onClick={this.submitHandler}>Post</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

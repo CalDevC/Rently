@@ -30,22 +30,13 @@ class MainNavigation extends Component {
    render() {
       return (
          <header>
-            <nav className="nav">
+            <nav className="nav_bar">
+               <h1 className="rently_logo">
+                <Link to="/">Rently</Link>
+               </h1>
                <ul className={classes.ul}>
                   <li>
-                     <Link to="/">Home</Link>
-                  </li>
-                  <li>
                      <Link to="/about">About</Link>
-                  </li>
-                  <li>
-                     {this.loginBtn()}
-                  </li>
-                  <li>
-                     <Link to="/Registration">Create An Account</Link>
-                  </li>
-                  <li>
-                     <Link to="/Profile">Profile</Link>
                   </li>
                   <li>
                      <Link to="/Categories">Search By Category</Link>
@@ -53,10 +44,20 @@ class MainNavigation extends Component {
                   <li>
                      <Link to="/CreateListing">List An Item</Link>
                   </li>
+                  <li>
+                     <Link to="/Registration">Create An Account</Link>
+                  </li>
+                  <li>
+                     {this.loginBtn()}
+                  </li>
+                  <li>
+                     <Link to="/Profile">Profile</Link>
+                  </li>
                   {/* <li>
                      <Link to="/DisplayPage">Display</Link>
                   </li> */}
-               </ul>
+                  </ul>
+              
             </nav>
          </header>
       );
