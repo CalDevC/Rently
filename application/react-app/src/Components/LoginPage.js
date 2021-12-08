@@ -51,14 +51,19 @@ class LoginPage extends Component {
   }
 
   routeChange() {
-    let path = `/`;
-    this.props.history.push(path);
+    if (this.state.data.status == 'bad') {
+      window.alert('You entered a wrong username or password, try it again');
+    } else if (this.state.data.status == 'ok') {
+      window.alert(this.usernameInputRef.value + ' is login in');
+    }
+
+    // let path = `/Categories`;
+    // this.props.history.push(path);
   }
   routeChange2() {
     let path = `/Registration`;
     this.props.history.push(path);
   }
-
   render() {
     return (
       <div>
@@ -87,7 +92,7 @@ class LoginPage extends Component {
             />
           </div>
           <div className={styles.username}>
-            <button>Log in</button>
+            <button onClick={this.routeChange}>Log in</button>
           </div>
           <div className={styles.username}>
             <button onClick={this.routeChange2}>Create An Account?</button>
