@@ -11,11 +11,11 @@ form {
   position: relative;
 }
 label {
-  text-justify: left;
+  justify-self: start;
   color: rgb(49, 110, 21);
 }
 input {
-  justify-content: right;
+  justify-content: end;
   left: 13%;
 }
 
