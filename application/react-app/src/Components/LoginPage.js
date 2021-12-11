@@ -48,6 +48,7 @@ class LoginPage extends Component {
       localStorage.setItem('email', this.state.data.user.email);
       localStorage.setItem('logged_in', true);
     }
+    this.routeChange();
   }
 
   routeChange() {
@@ -92,7 +93,7 @@ class LoginPage extends Component {
             />
           </div>
           <div className={styles.username}>
-            <button onClick={this.routeChange}>Log in</button>
+            <button >Log in</button>
           </div>
           <div className={styles.username}>
             <button onClick={this.routeChange2}>Create An Account?</button>
