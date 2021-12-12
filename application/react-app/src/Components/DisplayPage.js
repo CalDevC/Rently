@@ -43,9 +43,8 @@ class DisplayPage extends Component {
   submitHandler(event) {
     event.preventDefault();
     var userID = this.state.postInfo.RegisteredUser_ID;
-    var username = '';
 
-    fetch(`/api/account/getUser`, {
+    fetch(`/api/account/getEmailInfo`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -56,13 +55,21 @@ class DisplayPage extends Component {
     })
       .then((res) => res.json())
       .then((jsonRes) => {
-        username = jsonRes.userName;
+        let email = jsonRes.email;
+        let title = this.state.postInfo.title;
+        window.open(`mailto:${email}?subject=Rently | Inquiry about ${title} &body=Hi, is this currently available to be rented?`);
       })
       .catch((error) => {
         console.error('Error:', error);
       });
+  }
 
-    return <h5>{username}</h5>;
+  infoDisplay(info) {
+    if (info == "") {
+      return <h5></h5>;
+    } else {
+      return <h5>{info}</h5>;
+    }
   }
 
   routeChange() {

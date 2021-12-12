@@ -19,6 +19,7 @@ class LoginPage extends Component {
       },
     };
   }
+
   submitHandler(event) {
     event.preventDefault();
 
@@ -61,10 +62,12 @@ class LoginPage extends Component {
     // let path = `/Categories`;
     // this.props.history.push(path);
   }
+
   routeChange2() {
     let path = `/Registration`;
     this.props.history.push(path);
   }
+
   render() {
     return (
       <div>
