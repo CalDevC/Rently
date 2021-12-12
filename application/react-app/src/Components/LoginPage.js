@@ -54,13 +54,13 @@ class LoginPage extends Component {
 
   routeChange() {
     if (this.state.data.status == 'bad') {
-      window.alert('You entered a wrong username or password, try it again');
+      window.alert('Invalid username or password');
     } else if (this.state.data.status == 'ok') {
-      window.alert(this.usernameInputRef.value + ' is login in');
+      window.alert(this.usernameInputRef.value + ' is logged in');
+      let path = `/Categories`;
+      this.props.history.push(path);
     }
 
-    // let path = `/Categories`;
-    // this.props.history.push(path);
   }
 
   routeChange2() {

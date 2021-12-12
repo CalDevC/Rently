@@ -64,14 +64,6 @@ class DisplayPage extends Component {
       });
   }
 
-  infoDisplay(info) {
-    if (info == "") {
-      return <h5></h5>;
-    } else {
-      return <h5>{info}</h5>;
-    }
-  }
-
   routeChange() {
     let path = `/`;
     this.props.history.push(path);
