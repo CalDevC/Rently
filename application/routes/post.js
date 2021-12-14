@@ -9,6 +9,10 @@ const { uploadFile } = require('../s3');
 //Tell express to read incoming data as json
 router.use(express.json());
 
+function convertDate(Date) {
+
+}
+
 router.post('/addPost', upload.single('image'), async (req, res) => {
   //Interpret delivery checkbox
   const delivery = req.body.delivery ? 1 : 0;
@@ -25,17 +29,17 @@ router.post('/addPost', upload.single('image'), async (req, res) => {
   const start = req.body.startDate;
   const end = req.body.endDate;
 
-  console.log("delivery: ", delivery);
-  console.log("description: ", description);
-  console.log("price: ", price);
-  console.log("penalty: ", penalty);
-  console.log("equipment: ", equipment);
-  console.log("deposit: ", deposit);
-  console.log("location: ", location);
-  console.log("user: ", user);
-  console.log("category: ", category);
-  console.log("start: ", start);
-  console.log("end: ", end);
+  // console.log("delivery: ", delivery);
+  // console.log("description: ", description);
+  // console.log("price: ", price);
+  // console.log("penalty: ", penalty);
+  // console.log("equipment: ", equipment);
+  // console.log("deposit: ", deposit);
+  // console.log("location: ", location);
+  // console.log("user: ", user);
+  // console.log("category: ", category);
+  // console.log("start: ", start);
+  // console.log("end: ", end);
 
   const result = await uploadFile(file);
   const filePath = result.Location;
