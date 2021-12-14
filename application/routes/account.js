@@ -7,90 +7,90 @@ router.use(express.json());
 
 router.post('/login', (req, res) => {
 
-   const username = req.body.username;
-   const password = req.body.password;
+  const username = req.body.username;
+  const password = req.body.password;
 
-   if (!username || username.trim() === '' || !password || password.trim() === '') {
-      console.log('ERROR - no username or password given')
-      res.send('error');
-   }
+  if (!username || username.trim() === '' || !password || password.trim() === '') {
+    console.log('ERROR - no username or password given')
+    res.send('error');
+  }
 
-   let query = `SELECT * FROM Register_User WHERE username = '${username}';`;
+  let query = `SELECT * FROM Register_User WHERE username = '${username}';`;
 
-   //Make query for data
-   db.query(query)
-      .then(([results, fields]) => {
-         console.log(results);
+  //Make query for data
+  db.query(query)
+    .then(([results, fields]) => {
+      console.log(results);
 
-         //Send the data to the frontend
-         if (results.length > 0 && password == results[0].password) {
-            console.log(results);
-            res.send({
-               status: 'ok',
-               msg: 'Successfully logged in',
-               user: results[0]
-            });
-         }
-         else {
-            res.send({
-               status: 'bad',
-               msg: 'Invalid Username or Password'
-            });
-         }
+      //Send the data to the frontend
+      if (results.length > 0 && password == results[0].password) {
+        console.log(results);
+        res.send({
+          status: 'ok',
+          msg: 'Successfully logged in',
+          user: results[0]
+        });
+      }
+      else {
+        res.send({
+          status: 'bad',
+          msg: 'Invalid Username or Password'
+        });
+      }
 
-      })
-      .catch((err) => {
-         console.error('error connecting: ' + err.stack);
-         next(err);
-      })
+    })
+    .catch((err) => {
+      console.error('error connecting: ' + err.stack);
+      next(err);
+    })
 
 });
 
 
 router.post('/register', (req, res) => {
-   let username = req.body.username;
-   let email = req.body.email;
-   let password = req.body.password;
-   let dob = req.body.dob;
-   let address = req.body.address;
-   let zipCode = req.body.zipCode;
-   console.log(password);
-   console.log(dob);
+  let username = req.body.username;
+  let email = req.body.email;
+  let password = req.body.password;
+  let dob = req.body.dob;
+  let address = req.body.address;
+  let zipCode = req.body.zipCode;
+  console.log(password);
+  console.log(dob);
 
-   let query = `INSERT INTO Register_User (userName, email, salt, password, dob, address, zipCode) values ('${username}', '${email}', '', '${password}', '${dob}', '${address}', '${zipCode}');`;
+  let query = `INSERT INTO Register_User (userName, email, salt, password, dob, address, zipCode) values ('${username}', '${email}', '', '${password}', '${dob}', '${address}', '${zipCode}');`;
 
-   //Make query for data
-   db.query(query)
-      .then(([results, fields]) => {
-         console.log(results);
+  //Make query for data
+  db.query(query)
+    .then(([results, fields]) => {
+      console.log(results);
 
-         //Send the data to the frontend
-         res.send({
-            status: 'ok',
-            msg: 'Successfully Register'
-         });
-      })
-      .catch((err) => {
-         console.error('error connecting: ' + err.stack);
-         //next(err);
-      })
+      //Send the data to the frontend
+      res.send({
+        status: 'ok',
+        msg: 'Successfully Register'
+      });
+    })
+    .catch((err) => {
+      console.error('error connecting: ' + err.stack);
+      //next(err);
+    })
 
 });
 
-router.post('/getUser', (req, res) => {
-   const userID = req.body.userID;
-   console.log("HERE: ", userID);
-   let query = `SELECT userName FROM Register_User WHERE RegisteredUser_ID = ${userID}`;
+router.post('/getEmailInfo', (req, res) => {
+  const userID = req.body.userID;
+  console.log("HERE: ", userID);
+  let query = `SELECT * FROM Register_User WHERE RegisteredUser_ID = ${userID}`;
 
-   db.query(query)
-      .then(([results, fields]) => {
-         console.log(results);
-         res.send(results[0]);
-      })
-      .catch((err) => {
-         console.error('error connecting: ' + err.stack);
-         res.redirect('/');
-      });
+  db.query(query)
+    .then(([results, fields]) => {
+      console.log(results);
+      res.send(results[0]);
+    })
+    .catch((err) => {
+      console.error('error connecting: ' + err.stack);
+      res.redirect('/');
+    });
 });
 
 module.exports = router

@@ -19,6 +19,7 @@ class LoginPage extends Component {
       },
     };
   }
+
   submitHandler(event) {
     event.preventDefault();
 
@@ -48,22 +49,25 @@ class LoginPage extends Component {
       localStorage.setItem('email', this.state.data.user.email);
       localStorage.setItem('logged_in', true);
     }
+    this.routeChange();
   }
 
   routeChange() {
     if (this.state.data.status == 'bad') {
-      window.alert('You entered a wrong username or password, try it again');
+      window.alert('Invalid username or password');
     } else if (this.state.data.status == 'ok') {
-      window.alert(this.usernameInputRef.value + ' is login in');
+      window.alert(this.usernameInputRef.value + ' is logged in');
+      let path = `/Categories`;
+      this.props.history.push(path);
     }
 
-    // let path = `/Categories`;
-    // this.props.history.push(path);
   }
+
   routeChange2() {
     let path = `/Registration`;
     this.props.history.push(path);
   }
+
   render() {
     return (
       <div>
@@ -92,7 +96,7 @@ class LoginPage extends Component {
             />
           </div>
           <div className={styles.username}>
-            <button onClick={this.routeChange}>Log in</button>
+            <button >Log in</button>
           </div>
           <div className={styles.username}>
             <button onClick={this.routeChange2}>Create An Account?</button>
