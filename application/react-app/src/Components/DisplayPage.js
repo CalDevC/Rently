@@ -69,40 +69,57 @@ class DisplayPage extends Component {
     this.props.history.push(path);
   }
 
+  convertDate(date) {
+    if (date) {
+      date = date.toString().split("T")[0].split("-");
+      return date[1] + "/" + date[2] + "/" + date[0];
+      console.log(date);
+    }
+
+  }
+
   render() {
     let post = this.state.postInfo;
     return (
       <div>
-        <h1>List An Equipment</h1>
+        <h1>{post.title}</h1>
 
         <form onSubmit={this.submitHandler}>
-          <div className={styles.name}>
-            <label htmlFor="Equipment">Equipment Name:</label>
-            <p>{post.title}</p>
+          {post.imgURL && post.imgURL !== '' ? <img src={post.imgURL} alt={post.title} /> : ''}
+
+          <div className={styles.price}>
+            <p>{post.description}</p>
           </div>
+
           <div className={styles.price}>
             <label htmlFor="Price">Price:</label>
-            <p>{post.Price}</p>
+            <p>${post.Price}/day</p>
           </div>
+
           <div className={styles.days}>
-            <label htmlFor="Day">Days:</label>
-            <p>{post.startDay + ' to ' + post.endDay}</p>
+            <label htmlFor="Day">Available from:</label>
+            <p>{this.convertDate(post.startDay) + ' to ' + this.convertDate(post.endDay)}</p>
           </div>
+
           <div className={styles.deposit}>
             <label htmlFor="Deposit">Security Deposit:</label>
-            <p>{post.Price}</p>
+            <p>${post.Price}</p>
           </div>
+
           <div className={styles.damage}>
-            <label htmlFor="Damage">Price for damage:</label>
-            <p>{post.Price}</p>
+            <label htmlFor="Damage">Penalty for damages:</label>
+            <p>${post.Price}</p>
           </div>
+
           <div className={styles.location}>
-            <label htmlFor="Location">Location:</label>
-            <p></p>
+            <label htmlFor="Location">Location: </label>
+            <p>{post.location}</p>
           </div>
+
           <div className={styles.button}>
-            <button onClick={this.submitHandler}>Message</button>
+            <button onClick={this.submitHandler}>Message the Owner!</button>
           </div>
+
         </form>
       </div>
     );
