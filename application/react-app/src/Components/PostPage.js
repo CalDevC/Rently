@@ -125,14 +125,14 @@ class PostPage extends Component {
           </div>
 
           <div className={styles.username}>
-            <h4>Rental Times</h4>
+            <h4>Rental Availability</h4>
             <label htmlFor="start">Start Date:</label>
-            <input type="text" id="startDate" onChange={this.inputChangeHandler} />
+            <input type="text" id="startDate" placeholder='mm/dd/yyyy' onChange={this.inputChangeHandler} />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="end">End Date:</label>
-            <input type="text" id="endDate" onChange={this.inputChangeHandler} />
+            <input type="text" id="endDate" placeholder='mm/dd/yyyy' onChange={this.inputChangeHandler} />
           </div>
 
           <div>

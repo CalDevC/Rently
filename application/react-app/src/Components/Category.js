@@ -30,7 +30,6 @@ class Category extends Component {
       });
   }
 
-  //Currently displays the description but will enentually display Card componenets that show post thumbnails
   generatePostCards() {
     if (this.state.posts[0]) {
       let postList = this.state.posts[0].results;
