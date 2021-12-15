@@ -57,7 +57,7 @@ class Categories extends Component {
             let subLinkList = div.props.subLinks;
             subLinkList[subLinkList.length] = (
               <div key={subLinkList.length - 1}>
-                <Link to={'Categories/' + desc}>{pieces[1]}</Link>
+                <Link class={styles.bigLink}to={'Categories/' + desc}>{pieces[1]}</Link>
                 <br />
               </div>
             );
@@ -85,7 +85,7 @@ class Categories extends Component {
         <div className="header" id="page_header">
           <h1 className={styles.category}>Select By Category</h1>
         </div>
-        <div>{this.createButtonList()}</div>
+        <div className={styles.container}>{this.createButtonList()}</div>
       </div>
     );
   }

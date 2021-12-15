@@ -114,11 +114,12 @@ class PostPage extends Component {
             />
           </div>
 
-          <div className={styles.username}>
-            <Dropdown id="category" ref={(node) => (this.categoryInputRef = node)} />
+          <div className={styles.dropdown}>
+            <Dropdown className={styles.dropdown} ref={(node) => (this.categoryInputRef = node)} />
           </div>
 
           <div className={styles.username}>
+          <label htmlFor="Photo">Upload Photo:</label>
             <input type="file" accept="image/*" id="image" onChange={this.fileSelected} ref={(node) => (this.imageInputRef = node)} />
           </div>
 
@@ -164,7 +165,7 @@ class PostPage extends Component {
             <input type="text" id="endDate" onChange={this.inputChangeHandler} ref={(node) => (this.endInputRef = node)} />
           </div>
 
-          <div>
+          <div className={styles.buttons}>
             <button type="submit">Post</button>
           </div>
         </form>

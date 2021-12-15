@@ -1,6 +1,7 @@
 .rently {
   color: rgb(14, 56, 38);
 }
+
 form {
   border: 3px solid rgb(17, 51, 37);
   border-radius: 5px;
@@ -18,18 +19,29 @@ label {
   text-justify: left;
   color: rgb(49, 110, 21);
 }
+select{
+  float:right;
+}
 input {
   justify-content: right;
   left: 13%;
+  background-color: white;
+  border: 0.5px solid rgb(17, 51, 37);
+  border-radius: 5px;
 }
 button {
-  color: rgb(49, 110, 21);
-  background: rgb(191, 218, 192);
+  color: black;
+  background: white;
 }
-
 .create {
   color: rgb(14, 56, 38);
 }
 .username {
-  padding: 2px;
+  padding-bottom: 0.5cm;
+  }
+
+.dropdown{
+  float: right;
+  padding-bottom: 0.5cm;
+  justify-content: right;
 }
