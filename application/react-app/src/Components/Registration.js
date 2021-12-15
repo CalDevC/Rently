@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import React from 'react';
 import styles from '../CSS/Registration.module.css';
+import stylees from '../CSS/Post.module.css';
 
 class Registration extends Component {
   constructor() {
@@ -54,7 +55,7 @@ class Registration extends Component {
 
         <div>
           <form onSubmit={this.submitHandler}>
-            <div className={styles.username}>
+            <div className={stylees.username}>
               <label className={styles.name}>Username:</label>
               <input
                 type="text"
@@ -65,7 +66,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div className={styles.username}>
+            <div className={stylees.username}>
               <label>Email:</label>
               <input
                 type="email"
@@ -76,7 +77,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div className={styles.username}>
+            <div className={stylees.username}>
               <label>Password:</label>
               <input
                 type="password"
@@ -87,7 +88,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div className={styles.username}>
+            <div className={stylees.username}>
               <label>Confirm Password:</label>
               <input
                 type="password"
@@ -97,7 +98,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div className={styles.username}>
+            <div className={stylees.username}>
               <label>Date of Birth:</label>
               <input
                 type="Text"
@@ -108,7 +109,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div className={styles.username}>
+            <div className={stylees.username}>
               <label>Street Address:</label>
               <input
                 type="text"
@@ -119,7 +120,7 @@ class Registration extends Component {
               />
             </div>
 
-            <div className={styles.username}>
+            <div className={stylees.username}>
               <label>Zip Code:</label>
               <input
                 type="text"
@@ -129,12 +130,12 @@ class Registration extends Component {
                 ref={(node) => (this.zipCodeInputRef = node)}
               />
             </div>
-            <div className={styles.create}>
+            <div className={stylees.username}>
               <button type="submit" id="submit">
                 Create Account
               </button>
             </div>
-            <div className={styles.create}>
+            <div className={stylees.username}>
               <button type="cancel" id="cancel">
                 Cancel
               </button>

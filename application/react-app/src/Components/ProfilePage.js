@@ -91,8 +91,10 @@ class ProfilePage extends Component {
               ref={(node) => (this.emailInputRef = node)}
             />
           </div>
-          <label htmlFor="Picture">Picture</label>
+
+      
           <div>{/* <img src="images/Member1.jpg" width={200} alt="" /> */}</div>
+          
           <div className={styles.username}>
             <button>Save</button>
           </div>

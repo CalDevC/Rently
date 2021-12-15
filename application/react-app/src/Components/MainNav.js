@@ -36,8 +36,8 @@ class MainNavigation extends Component {
     return (
       <header>
         <nav className="nav_bar">
-          <h1 className="rently_logo">
-            <Link to="/">Rently</Link>
+          <h1 className={classes.logo}>
+            <Link to="/"><p>Rently</p></Link>
           </h1>
           <ul className={classes.ul}>
             <li>

@@ -18,9 +18,27 @@ form {
   flex-direction: column;
   max-width: fit-content;
   color: #6eac95;
-  padding: 50px;
+  padding: 5px;
   position: relative;
 }
+
 .username {
-  padding: 2px;
+padding-bottom: 0.5cm;
+}
+label{
+  float:left;
+  padding-right: 0.5cm;
+}
+input{
+  float:right
+}
+
+button{
+  border: 0.5px solid rgb(221, 219, 219); 
+  max-height: 5cm;
+  border-radius: 5px;
+}
+
+button:hover{
+  background-color: rgb(228, 228, 228);
 }
