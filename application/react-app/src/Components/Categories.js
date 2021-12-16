@@ -13,6 +13,7 @@ class Categories extends Component {
     };
   }
 
+  //Fetch categories on initial page load
   componentDidMount() {
     this.fetchCategories();
   }

@@ -3,14 +3,18 @@ const router = express.Router();
 const db = require('../config/database');
 const bcrypt = require('bcrypt');
 
+//Routes dealing with user accounts
+
 //Tell express to read incoming data as json
 router.use(express.json());
 
+//Route to login the user
 router.post('/login', (req, res) => {
 
   const username = req.body.username;
   const password = req.body.password;
 
+  //Check that a username and password were provided
   if (!username || username.trim() === '' || !password || password.trim() === '') {
     console.log('ERROR - no username or password given')
     res.send('error');
@@ -23,11 +27,9 @@ router.post('/login', (req, res) => {
     .then(([results, fields]) => {
       console.log(results);
 
-      //Send the data to the frontend
-      console.log("SENDING DATA ");
-      console.log("INPUT PASS  ", results[0].password);
+      //Check that we get results and unencrypt password for comparison
       if (results.length > 0 && bcrypt.compare(password, results[0].password)) {
-        console.log(results);
+        //Send the data to the frontend
         res.send({
           status: 'ok',
           msg: 'Successfully logged in',
@@ -49,15 +51,15 @@ router.post('/login', (req, res) => {
 
 });
 
-
+//Route for registering new users
 router.post('/register', (req, res) => {
   let username = req.body.username;
   let email = req.body.email;
-  console.log("REG PASS ", req.body.password);
   let dob = req.body.dob;
   let address = req.body.address;
   let zipCode = req.body.zipCode;
 
+  //Encrypt password with bcrypt
   bcrypt.hash(req.body.password, 10)
     .then((hash) => {
       let query = `INSERT INTO Register_User (userName, email, salt, password, dob, address, zipCode) values ('${username}', '${email}', '', '${hash}', '${dob}', '${address}', '${zipCode}');`;
@@ -79,9 +81,10 @@ router.post('/register', (req, res) => {
 
 });
 
+//Route for getting user info based on user ID
 router.post('/getInfo', (req, res) => {
   const userID = req.body.userID;
-  console.log("HERE: ", userID);
+
   let query = `SELECT * FROM Register_User WHERE RegisteredUser_ID = ${userID}`;
 
   db.query(query)
@@ -95,8 +98,10 @@ router.post('/getInfo', (req, res) => {
     });
 });
 
+//Route for getting user info by name
 router.post('/getInfoByName', (req, res) => {
   const user = req.body.user;
+
   let query = `SELECT * FROM Register_User WHERE RegisteredUser_ID = (SELECT RegisteredUser_ID FROM Register_User WHERE userName = '${user}')`;
 
   db.query(query)
@@ -110,6 +115,7 @@ router.post('/getInfoByName', (req, res) => {
     });
 });
 
+//Route for updating user details
 router.post('/profile', (req, res) => {
   let username = req.body.username;
   let email = req.body.email;
@@ -137,6 +143,7 @@ router.post('/profile', (req, res) => {
     });
 });
 
+//Function for converting date from mm/dd/yyyy to DB format
 function convertDate(date) {
   if (date) {
     let parts = date.split('/');

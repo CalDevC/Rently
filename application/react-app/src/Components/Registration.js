@@ -135,11 +135,12 @@ class Registration extends Component {
                 Create Account
               </button>
             </div>
-            <div className={stylees.username}>
-              <button type="cancel" id="cancel">
-                Cancel
-              </button>
+
+            <div className={styles.username}>
+              <label style={{ fontSize: '10pt', paddingTop: '6px', paddingRight: '0' }}>Already have an account? </label>
+              <a style={{ fontSize: '10pt', color: '#1160C6', cursor: 'pointer', textDecoration: 'underline' }} href='/LoginPage'>Log in Here</a>
             </div>
+
             <div id="error"></div>
             <div id="success"></div>
           </form>

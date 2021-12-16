@@ -1,6 +1,8 @@
 import { React, Component } from 'react';
 import '../CSS/Post.module.css';
 
+//Dropdown menu to be used for category selection
+
 class Dropdown extends Component {
   constructor(props) {
     super(props);
@@ -8,14 +10,17 @@ class Dropdown extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) { this.setState({ value: event.target.value }); }
+  //Update value when changed
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
 
   render() {
     return (
       <div>
-      <label>
-        Category:
-      </label>
+        <label>
+          Category:
+        </label>
         <select value={this.state.value} onChange={this.handleChange}>
           <option value="Indoor Equipment">Indoor Equipment</option>
           <option value="Outdoor Equipment">Outdoor Equipment</option>
@@ -27,8 +32,8 @@ class Dropdown extends Component {
           <option value="Tools/Automotive">Automotive Tools</option>
           <option value="Tools/General">General Tools</option>
         </select>
-        </div>
-      
+      </div>
+
     );
   }
 }

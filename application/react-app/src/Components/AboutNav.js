@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import classes from '../CSS/MainNavigation.module.css';
 import styles from '../CSS/profiles.module.css';
 
+//Navigation for about page
+
 function AboutNav() {
   return (
     <header>

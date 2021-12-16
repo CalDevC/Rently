@@ -2,6 +2,8 @@ import { Component } from 'react';
 import React from 'react';
 import styles from '../CSS/Profile.module.css';
 
+//Page for user to update profile details
+
 class ProfilePage extends Component {
   constructor() {
     super();
@@ -23,11 +25,13 @@ class ProfilePage extends Component {
     };
   }
 
+  //On initial load
   componentDidMount() {
+    //If user is logged in
     if (localStorage.getItem('logged_in') == "true") {
       var user = localStorage.getItem('user');
-      console.log("USER: ", user);
 
+      //Get info of user to prefill fields
       fetch(`/api/account/getInfoByName`, {
         method: 'POST',
         headers: {
@@ -42,25 +46,29 @@ class ProfilePage extends Component {
         .catch((error) => {
           console.error('Error:', error);
         });
-    } else {
+    } else { //If user not logged in, redirect to log in
       this.routeChange();
     }
 
   }
 
+  //Redirect to login page
   routeChange() {
     window.location.href = '/LoginPage';
   }
 
+  //When save button is clicked
   submitHandler(event) {
     event.preventDefault();
 
+    //Attempt to save changes to DB
     fetch('/api/account/profile', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        //Send users new data
         username: this.usernameInputRef.value,
         password: this.passwordInputRef.value,
         name: this.nameInputRef.value,
@@ -81,12 +89,12 @@ class ProfilePage extends Component {
       });
   }
 
+  //Convert date from mm/dd/yyyy to DB format
   convertDate(date) {
     if (date) {
       date = date.toString().split("T")[0].split("-");
       return date[1] + "/" + date[2] + "/" + date[0];
     }
-
   }
 
   render() {

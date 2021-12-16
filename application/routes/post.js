@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
 
+//FOr image uploading
 const multer = require('multer');
 const upload = multer({ dest: 'uploads' });
 const { uploadFile } = require('../s3');
@@ -9,11 +10,13 @@ const { uploadFile } = require('../s3');
 //Tell express to read incoming data as json
 router.use(express.json());
 
+//Convert date from mm/dd/yyyy to DB format
 function convertDate(date) {
   let parts = date.split('/');
   return parts[2] + "-" + parts[0] + "-" + parts[1];
 }
 
+//Route for adding a new post
 router.post('/addPost', upload.single('image'), async (req, res) => {
   //Interpret delivery checkbox
   const delivery = req.body.delivery ? 1 : 0;
@@ -55,6 +58,7 @@ router.post('/addPost', upload.single('image'), async (req, res) => {
 
 });
 
+//Route for a rental posting
 router.post(/\/./, (req, res) => {
   const postID = req.body.postID;
   let query = `SELECT * FROM Rental WHERE Rental_ID = ${postID}`;
@@ -70,6 +74,7 @@ router.post(/\/./, (req, res) => {
     });
 });
 
+//Route for deleting a post
 router.post('/deletePost', (req, res) => {
 
   let query = `DELETE Equipment WHERE Equipment_ID = (); `
