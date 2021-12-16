@@ -1,0 +1,21 @@
+.bigLink{
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(216,255,231,1) 94%);
+    border-radius: 10px;
+  }
+
+.bigCat{
+  background: rgb(58,180,127);
+background: linear-gradient(90deg, rgba(58,180,127,1) 0%, rgba(39,210,130,1) 50%, rgba(48,148,98,1) 100%);
+  padding: 15px 0;
+  border-radius: 10px;
+}
+.smallLink{
+  color: white;
+}
+.smallCat{
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(216,255,231,1) 94%);
+  border-radius: 10px;
+  padding-top: 3cm;
+  min-height: 5cm;
+}

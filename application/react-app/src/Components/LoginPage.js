@@ -2,6 +2,7 @@ import { Component } from 'react';
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styles from '../CSS/LoginPage.module.css';
+import stylees from '../CSS/Post.module.css';
 
 class LoginPage extends Component {
   constructor() {
@@ -75,7 +76,7 @@ class LoginPage extends Component {
           <h1 className={styles.head}>Hello! Login Here.</h1>
         </div>
         <form onSubmit={this.submitHandler}>
-          <div className={styles.username}>
+          <div className={stylees.username}>
             <label htmlFor="Username">Username:</label>
             <input
               type="text"
@@ -85,7 +86,7 @@ class LoginPage extends Component {
               ref={(node) => (this.usernameInputRef = node)}
             />
           </div>
-          <div className={styles.username}>
+          <div className={stylees.username}>
             <label htmlFor="Password">Password:</label>
             <input
               type="password"
@@ -95,7 +96,7 @@ class LoginPage extends Component {
               ref={(node) => (this.passwordInputRef = node)}
             />
           </div>
-          <div className={styles.username}>
+          <div className={stylees.username}>
             <button >Log in</button>
           </div>
           <div className={styles.username}>

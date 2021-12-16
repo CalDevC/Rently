@@ -86,12 +86,13 @@ class PostPage extends Component {
             <input type="text" id="equipment" required onChange={this.inputChangeHandler} />
           </div>
 
-          <div className={styles.username}>
-            <Dropdown id="category" ref={(node) => (this.categoryInputRef = node)} />
+          <div className={styles.dropdown}>
+            <Dropdown className={styles.dropdown} ref={(node) => (this.categoryInputRef = node)} />
           </div>
 
           <div className={styles.username}>
-            <input type="file" accept="image/*" id="image" required onChange={this.fileSelected} />
+            <label htmlFor="Photo">Upload Photo:</label>
+            <input type="file" accept="image/*" id="image" onChange={this.fileSelected} />
           </div>
 
           <div className={styles.username}>
@@ -135,7 +136,7 @@ class PostPage extends Component {
             <input type="text" id="endDate" required placeholder='mm/dd/yyyy' onChange={this.inputChangeHandler} />
           </div>
 
-          <div>
+          <div className={styles.buttons}>
             <button type="submit">Post</button>
           </div>
         </form>
