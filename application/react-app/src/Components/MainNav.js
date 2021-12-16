@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import classes from '../CSS/MainNavigation.module.css';
 import "../CSS/MainNavigation.module.css";
-import { browserHistory } from 'react-router';
+import { withRouter } from 'react-router-dom';
+
 
 class MainNavigation extends Component {
   constructor() {
@@ -10,32 +11,59 @@ class MainNavigation extends Component {
     this.state = {
       logged: false
     }
-
     this.logOut = this.logOut.bind(this);
+  }
 
+
+  profile() {
+    if (localStorage.getItem("logged_in") == "true") {
+      return <Link to="/Profile">Profile</Link>
+    }
+    else {
+      return <p></p>
+    }
   }
 
   loginBtn() {
-    let logged = localStorage.getItem("logged_in");
-    if (logged) {
-      return <a onClick={this.logOut} >Log out</a >
+    if (localStorage.getItem("logged_in") == "true") {
+      return <a onClick={this.logOut} >Log out</a>
     }
     else {
       return <Link to="/LoginPage">Login</Link>
     }
   }
 
+  listItem() {
+    if (localStorage.getItem("logged_in") == "true") {
+      return <Link to="/CreateListing">List An Item</Link>
+    }
+    else {
+      return <p></p>
+    }
+  }
+
+
   logOut() {
-    localStorage.removeItem('logged_in');
+    localStorage.setItem('logged_in', "false");
     localStorage.removeItem('user');
     localStorage.removeItem('email');
-    this.setState({ logged: false });
+    this.props.history.push('/LoginPage');
   }
+
+  register() {
+    if (localStorage.getItem("logged_in") == "true") {
+      return <p></p>
+    }
+    else {
+      return <Link to="/Registration">Register</Link>
+    }
+  }
+
 
   render() {
     return (
       <header>
-        <nav className="nav_bar">
+        <nav className="nar_bar">
           <h1 className={classes.logo}>
             <Link to="/"><p>Rently</p></Link>
           </h1>
@@ -47,22 +75,25 @@ class MainNavigation extends Component {
               <Link to="/Categories">Search By Category</Link>
             </li>
             <li>
-              <Link to="/CreateListing">List An Item</Link>
+              {this.listItem()}
             </li>
             <li>
-              <Link to="/Registration">Create An Account</Link>
+              {this.register()}
             </li>
             <li>
               {this.loginBtn()}
             </li>
+
             <li>
-              <Link to="/Profile">Profile</Link>
+              {this.profile()}
             </li>
           </ul>
-
         </nav>
       </header>
     );
   }
 }
-export default MainNavigation;
+
+
+export default withRouter(MainNavigation);
+

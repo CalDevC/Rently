@@ -44,7 +44,7 @@ class DisplayPage extends Component {
     event.preventDefault();
     var userID = this.state.postInfo.RegisteredUser_ID;
 
-    fetch(`/api/account/getEmailInfo`, {
+    fetch(`/api/account/getInfo`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -73,7 +73,6 @@ class DisplayPage extends Component {
     if (date) {
       date = date.toString().split("T")[0].split("-");
       return date[1] + "/" + date[2] + "/" + date[0];
-      console.log(date);
     }
 
   }

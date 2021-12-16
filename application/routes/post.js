@@ -10,7 +10,6 @@ const { uploadFile } = require('../s3');
 router.use(express.json());
 
 function convertDate(date) {
-  //yyyy-mm-dd
   let parts = date.split('/');
   return parts[2] + "-" + parts[0] + "-" + parts[1];
 }
