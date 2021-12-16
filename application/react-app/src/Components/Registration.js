@@ -20,6 +20,8 @@ class Registration extends Component {
       },
     };
   }
+
+  //When registration button is clicked
   submitHandler(event) {
     event.preventDefault();
 
@@ -40,12 +42,25 @@ class Registration extends Component {
       .then((response) => response.json())
       .then((res) => {
         console.log('Response Received:', res);
-        this.setState({ data: res });
+        this.setState({ data: res }, this.routeChange);
       })
       .catch((error) => {
         console.error('Error:', error);
       });
+
   }
+
+  //Alert user of registration status
+  routeChange() {
+    console.log(this.state.data.status);
+    if (this.state.data.status == 'bad') {
+      window.alert('Problem registering your account. Please try again later...');  //Stay on page and alert if bad
+    } else if (this.state.data.status == 'ok') {
+      window.alert('Successfully Registered!');  //Alert if good
+      window.location.href = '/LoginPage';  //Redirect
+    }
+  }
+
   render() {
     return (
       <div>
