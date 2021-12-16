@@ -8,13 +8,15 @@ function Card(props) {
   return (
     <div className={styles.mainCard} id="cardId">
       <div>
-        {imageUrl && imageUrl !== '' ? (
-          <h1 className={styles.cardTitle}>
-            <img src={imageUrl} alt={imageUrl} className={styles.picture} />
-          </h1>
-        ) : (
-          ''
-        )}
+        <div className={styles.cardTitle}>
+          {imageUrl && imageUrl !== '' ? (
+            <h1 className={styles.cardTitle}>
+              <img src={imageUrl} alt={imageUrl} className={styles.picture} />
+            </h1>
+          ) : (
+            ''
+          )}
+        </div>
         {props.title}
       </div>
       <div className="button">
