@@ -86,7 +86,7 @@ class PostPage extends Component {
             <input type="text" id="equipment" onChange={this.inputChangeHandler} />
           </div>
 
-          <div className={styles.dropdown}>
+          <div className={styles.username}>
             <Dropdown className={styles.dropdown} ref={(node) => (this.categoryInputRef = node)} />
           </div>
 
