@@ -4,6 +4,8 @@ import { withRouter } from 'react-router-dom';
 import Dropdown from './Dropdown';
 import styles from '../CSS/Post.module.css';
 
+//Page that users fill out to create a post
+
 class PostPage extends Component {
   constructor() {
     super();
@@ -13,6 +15,7 @@ class PostPage extends Component {
     this.routeChange = this.routeChange.bind(this);
     this.fileSelected = this.fileSelected.bind(this);
 
+    //Post details saved in state
     this.state = {
       status: '',
       msg: '',
@@ -29,22 +32,22 @@ class PostPage extends Component {
     };
   }
 
+  //When post button is clicked
   async submitHandler(event) {
     event.preventDefault();
     const formData = new FormData();
     let data = this.state;
 
+    //For all fields in the state, create a formData key/value pair
     for (let key in data) {
       formData.append(key, data[key]);
     }
 
+    //Add remaining info to form data
     formData.append('category', this.categoryInputRef.state.value);
     formData.append('user', localStorage.getItem('user'));
 
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
-
+    //Attempt to save post to DB
     await fetch('/api/posts/addPost', {
       method: 'POST',
       body: formData,
@@ -61,21 +64,24 @@ class PostPage extends Component {
 
   }
 
+  //Update state on input change
   inputChangeHandler(event) {
     this.setState({
       [event.target.id]: event.target.value,
     });
   }
 
+  //Save selected file to state
   fileSelected(event) {
     const file = event.target.files[0];
     this.setState({ image: file });
   }
 
+  //Alert user that their post was made
   routeChange() {
     window.alert('You posted the item');
     let path = `/Categories`;
-    this.props.history.push(path);
+    this.props.history.push(path);  //Redirect
   }
 
   render() {
@@ -114,11 +120,7 @@ class PostPage extends Component {
 
           <div className={styles.username}>
             <label htmlFor="Penalty">Penalty for damages $</label>
-            <input
-              type="text"
-              id="penalty"
-              onChange={this.inputChangeHandler}
-            />
+            <input type="text" id="penalty" onChange={this.inputChangeHandler} />
           </div>
 
           <div className={styles.username}>

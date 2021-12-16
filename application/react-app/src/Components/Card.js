@@ -1,10 +1,14 @@
 import styles from '../CSS/Card.module.css';
 import { useHistory } from 'react-router-dom';
 
+//Cards containing titles and thumbnails
+
 function Card(props) {
+  //Props and variables
   const history = useHistory();
   const postID = props.id;
   const imageUrl = props.imageUrl;
+
   return (
     <div className={styles.mainCard} id="cardId">
       <div>

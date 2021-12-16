@@ -15,6 +15,8 @@ import PostPage from './PostPage';
 import DisplayPage from './DisplayPage';
 import EditListing from './EditListing';
 
+//Router for our app
+
 function App() {
   return (
     <div className="App">

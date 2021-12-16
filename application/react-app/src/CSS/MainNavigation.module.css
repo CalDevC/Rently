@@ -14,7 +14,7 @@ h1{
   margin-left: 30px;
 }
 p{
-  color: white;
+  color: black;
 }
 
 ul{
@@ -35,4 +35,5 @@ a {
 
 a:hover{
   text-shadow: 1px 1px 2px lightgray;
+  cursor: pointer;
 }

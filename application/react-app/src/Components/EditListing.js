@@ -1,6 +1,9 @@
 import { Component } from "react";
 import React from "react";
 
+/* FOR FUTURE USE */
+//This component will be used to edit posts
+
 class EditListing extends Component {
   constructor() {
     super();
@@ -16,6 +19,7 @@ class EditListing extends Component {
       },
     };
   }
+
   submitHandler(event) {
     event.preventDefault();
   }

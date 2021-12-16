@@ -3,6 +3,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styles from '../CSS/DisplayPage.module.css';
 
+//The page where the user views post details
+
 class DisplayPage extends Component {
   constructor() {
     super();
@@ -14,21 +16,25 @@ class DisplayPage extends Component {
     };
   }
 
+  //Get post info on initial page load
   componentDidMount() {
     this.getPostInfo();
   }
 
+  //Get the information relating to the post
   getPostInfo() {
+    //Get post id from url
     var url = window.location.href;
     this.postID = /posts\/(.+)/.exec(url)[1];
 
+    //Fetch post details
     fetch(`/api/posts/${this.postID}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        postID: this.postID,
+        postID: this.postID, //Send post ID to use for db search
       }),
     })
       .then((res) => res.json())
@@ -40,10 +46,13 @@ class DisplayPage extends Component {
       });
   }
 
+  //Executed when 'Rental' button is clicked
   submitHandler(event) {
     event.preventDefault();
+    //Get user ID
     var userID = this.state.postInfo.RegisteredUser_ID;
 
+    //Fetch the users details for messaging
     fetch(`/api/account/getInfo`, {
       method: 'POST',
       headers: {
@@ -57,6 +66,8 @@ class DisplayPage extends Component {
       .then((jsonRes) => {
         let email = jsonRes.email;
         let title = this.state.postInfo.title;
+
+        //Open an email to the poster and fill in subject, recipient, and template message
         window.open(`mailto:${email}?subject=Rently | Inquiry about ${title} &body=Hi, is this currently available to be rented?`);
       })
       .catch((error) => {
@@ -64,11 +75,13 @@ class DisplayPage extends Component {
       });
   }
 
+  //Reroute to home page
   routeChange() {
     let path = `/`;
     this.props.history.push(path);
   }
 
+  //Convert date from DB format to mm/dd/yyyy
   convertDate(date) {
     if (date) {
       date = date.toString().split("T")[0].split("-");

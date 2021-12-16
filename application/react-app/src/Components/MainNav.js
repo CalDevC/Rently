@@ -4,6 +4,7 @@ import classes from '../CSS/MainNavigation.module.css';
 import "../CSS/MainNavigation.module.css";
 import { withRouter } from 'react-router-dom';
 
+//The main navigation for our application
 
 class MainNavigation extends Component {
   constructor() {
@@ -14,7 +15,7 @@ class MainNavigation extends Component {
     this.logOut = this.logOut.bind(this);
   }
 
-
+  //Determine whether to display profile link
   profile() {
     if (localStorage.getItem("logged_in") == "true") {
       return <Link to="/Profile">Profile</Link>
@@ -24,6 +25,7 @@ class MainNavigation extends Component {
     }
   }
 
+  //Determine whether to display log in or log out button
   loginBtn() {
     if (localStorage.getItem("logged_in") == "true") {
       return <a onClick={this.logOut} >Log out</a>
@@ -33,6 +35,7 @@ class MainNavigation extends Component {
     }
   }
 
+  //Determine whether to display list item button
   listItem() {
     if (localStorage.getItem("logged_in") == "true") {
       return <Link to="/CreateListing">List An Item</Link>
@@ -42,14 +45,14 @@ class MainNavigation extends Component {
     }
   }
 
-
+  //Clear log in data
   logOut() {
     localStorage.setItem('logged_in', "false");
     localStorage.removeItem('user');
-    localStorage.removeItem('email');
     this.props.history.push('/LoginPage');
   }
 
+  //Determine whether to display registration button
   register() {
     if (localStorage.getItem("logged_in") == "true") {
       return <p></p>
@@ -58,7 +61,6 @@ class MainNavigation extends Component {
       return <Link to="/Registration">Register</Link>
     }
   }
-
 
   render() {
     return (
@@ -71,15 +73,19 @@ class MainNavigation extends Component {
             <li>
               <Link to="/about">About</Link>
             </li>
+
             <li>
               <Link to="/Categories">Search By Category</Link>
             </li>
+
             <li>
               {this.listItem()}
             </li>
+
             <li>
               {this.register()}
             </li>
+
             <li>
               {this.loginBtn()}
             </li>
