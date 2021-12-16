@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+//Routes for each team member to send their data
+
 router.get("/chase-alexander", (req, res) => {
   res.send({
     name: "Chase Alexander",

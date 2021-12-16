@@ -1,0 +1,11 @@
+body {
+  text-align: center;
+  font-size: 20px;
+  background: rgb(165,242,195);
+  background: linear-gradient(90deg, rgba(165,242,195,1) 0%, rgba(189,255,230,1) 33%);
+  font-family: 'Montserrat', sans-serif;
+}
+
+link {
+  text-decoration: none;
+}

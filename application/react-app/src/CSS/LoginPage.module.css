@@ -5,3 +5,31 @@
 .login {
   text-align: center;
 }
+
+.head {
+  color: rgb(14, 56, 38);
+}
+form {
+  border: 3px solid rgb(17, 51, 37);
+  border-radius: 5px;
+  margin: 3rem auto;
+  display: flex;
+  background: rgb(201,255,222);
+  background: linear-gradient(90deg, rgba(201,255,222,1) 0%, rgba(255,255,255,1) 41%);
+  flex-direction: column;
+  max-width: fit-content;
+  color: #6eac95;
+  padding: 50px;
+  position: relative;
+}
+label {
+  text-justify: left;
+  color: rgb(49, 110, 21);
+}
+input {
+  justify-content: right;
+  left: 13%;
+}
+.username {
+  padding: 2px;
+}

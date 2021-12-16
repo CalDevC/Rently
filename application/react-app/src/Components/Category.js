@@ -1,62 +1,77 @@
 import { React, Component } from 'react';
 import Card from './Card';
+import styles from '../CSS/Category.module.css';
+
+//Creates and displays cards on a category page
 
 class Category extends Component {
+  constructor() {
+    super();
+    this.state = {
+      posts: [],
+      category: ''
+    };
+  }
 
-   constructor() {
-      super();
-      this.state = {
-         posts: []
-      }
-   }
+  //Get category info on initial load
+  componentDidMount() {
+    this.getCategoryInfo();
+  }
 
-   componentDidMount() {
-      this.getCategoryInfo();
-   }
+  getCategoryInfo() {
+    //Get category name from url
+    var url = window.location.href;
+    let category = /Categories\/(.+)/.exec(url)[1].replace(/%20/g, ' ');
+    this.setState({ category: category });
 
-   getCategoryInfo() {
-      //Get category from url
-      var url = window.location.href;
-      let category = /Categories\/(.+)/.exec(url)[1].replace(/%20/g, ' ');
-      console.log("category: " + category);
+    //Fetch category posts
+    fetch(`/api/categories/${category}`)
+      .then((res) => res.json())
+      .then((jsonRes) => {
+        this.setState({ posts: [jsonRes] });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
 
-      fetch(`/api/categories/${category}`)
-         .then((res) => res.json())
-         .then((jsonRes) => {
-            this.setState({ posts: [jsonRes] });
-         })
-         .catch((error) => {
-            console.error("Error:", error);
-         });
-   }
-
-   //Currently displays the description but will enentually display Card componenets that show post thumbnails
-   generatePostCards() {
-      let postList = this.state.posts
+  generatePostCards() {
+    //If there are posts
+    if (this.state.posts[0]) {
+      let postList = this.state.posts[0].results;
       let descList = [];
 
       //For each post
       for (let i in postList) {
-         let post = postList[i];
-         console.log("POST BELOW: ");
-         console.log(post);
-         descList[i] = <Card key={post.results.Rental_ID} title={post.results.description} id={post.results.Rental_ID} />;
+        let post = postList[i];
+        //Create a card component and add it to the list
+        descList[i] = (
+          <Card
+            key={post.Rental_ID}
+            title={post.description}
+            imageUrl={post.imgURL}
+            id={post.Rental_ID}
+          />
+        );
       }
 
       console.log(descList);
 
-      return descList;
-   }
+      return descList;  //Return list of cards
+    }
 
-   render() {
-      return (
-         <div>
-            <h1>Page Reached</h1>
-            {this.generatePostCards()}
-         </div>
-      );
-   }
+    return <h5>Loading posts...</h5>  //Display if state hasn't been filled with post list yet
 
+  }
+
+  render() {
+    return (
+      <div>
+        <h1 className={styles.category}>{this.state.category}</h1>
+        <div className={styles.grid}>{this.generatePostCards()}</div>
+      </div>
+    );
+  }
 }
 
 export default Category;

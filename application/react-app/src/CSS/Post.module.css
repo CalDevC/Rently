@@ -1,0 +1,47 @@
+.rently {
+  color: rgb(14, 56, 38);
+}
+
+form {
+  border: 3px solid rgb(17, 51, 37);
+  border-radius: 5px;
+  margin: 3rem auto;
+  display: flex;
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(216,255,231,1) 94%);
+  flex-direction: column;
+  max-width: fit-content;
+  color: #6eac95;
+  padding: 50px;
+  position: relative;
+}
+label {
+  text-justify: left;
+  color: rgb(49, 110, 21);
+}
+select{
+  float:right;
+}
+input {
+  justify-content: right;
+  left: 13%;
+  background-color: white;
+  border: 0.5px solid rgb(17, 51, 37);
+  border-radius: 5px;
+}
+button {
+  color: black;
+  background: white;
+}
+.create {
+  color: rgb(14, 56, 38);
+}
+.username {
+  padding: 0.25cm;
+  }
+
+.dropdown{
+  float: right;
+  padding-bottom: 0.5cm;
+  justify-content: right;
+}

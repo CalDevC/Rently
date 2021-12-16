@@ -1,15 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import classes from "../CSS/MainNavigation.module.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import classes from '../CSS/MainNavigation.module.css';
+import styles from '../CSS/profiles.module.css';
+
+//Navigation for about page
 
 function AboutNav() {
   return (
     <header>
-      <h1>About Me</h1>
-      <p> CSC 648 Software Engineering SFSU </p>
-      <p> Fall 2021 </p>
-      <p> Section 1 </p>
-      <p>Team 1</p>
       <nav>
         <ul className={classes.ul}>
           <li>
