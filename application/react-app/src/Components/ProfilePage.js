@@ -21,12 +21,31 @@ class ProfilePage extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/account/getInfo')
-      .then(res => res.json())
-      .then(jsonRes => this.setState({ userInfo: jsonRes }))
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    if (localStorage.getItem('logged_in') == "true") {
+      var user = localStorage.getItem('user');
+
+      fetch(`/api/account/getInfoByName`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user: user,
+        }),
+      })
+        .then((res) => res.json())
+        .then((jsonRes) => this.setState({ userInfo: jsonRes }))
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    } else {
+      this.routeChange();
+    }
+
+  }
+
+  routeChange() {
+    window.location.href = '/LoginPage';
   }
 
   submitHandler(event) {
@@ -69,17 +88,17 @@ class ProfilePage extends Component {
 
           <div className={styles.username}>
             <label htmlFor="Password">Password:</label>
-            <input type="password" id="password" required ref={(node) => (this.passwordInputRef = node)} />
-          </div>
-
-          <div className={styles.username}>
-            <label htmlFor="Name">Name:</label>
-            <input type="text" id="name" required ref={(node) => (this.nameInputRef = node)} />
+            <input type="password" id="password" required defaultValue={this.state.userInfo.password} ref={(node) => (this.passwordInputRef = node)} />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="Email">Email:</label>
-            <input type="text" id="email" required ref={(node) => (this.emailInputRef = node)} />
+            <input type="text" id="email" required placeholder={this.state.userInfo.email} defaultValue={this.state.userInfo.email} ref={(node) => (this.emailInputRef = node)} />
+          </div>
+
+          <div className={styles.username}>
+            <label htmlFor="dob">Date of Birth:</label>
+            <input type="text" id="email" required ref={(node) => (this.dobInputRef = node)} />
           </div>
 
           <div className={styles.username}>

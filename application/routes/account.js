@@ -93,6 +93,22 @@ router.post('/getInfo', (req, res) => {
     });
 });
 
+router.post('/getInfoByName', (req, res) => {
+  const user = req.body.user;
+  console.log("HERE: ", user);
+  let query = `SELECT * FROM Register_User WHERE RegisteredUser_ID = (SELECT RegisteredUser_ID FROM Register_User WHERE userName = ${user})`;
+
+  db.query(query)
+    .then(([results, fields]) => {
+      console.log(results);
+      res.send(results[0]);
+    })
+    .catch((err) => {
+      console.error('error connecting: ' + err.stack);
+      res.redirect('/');
+    });
+});
+
 router.post('/profile', (req, res) => {
   let username = req.body.username;
   let email = req.body.email;
