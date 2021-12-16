@@ -35,4 +35,5 @@ a {
 
 a:hover{
   text-shadow: 1px 1px 2px lightgray;
+  cursor: pointer;
 }
