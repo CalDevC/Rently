@@ -9,9 +9,9 @@ function Card(props) {
     <div className={styles.mainCard} id="cardId">
       <div>
         {imageUrl && imageUrl !== '' ? (
-          <p className={styles.cardTitle}>
-            <img src={imageUrl} alt={imageUrl} />
-          </p>
+          <h1 className={styles.cardTitle}>
+            <img src={imageUrl} alt={imageUrl} className={styles.picture} />
+          </h1>
         ) : (
           ''
         )}

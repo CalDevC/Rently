@@ -10,6 +10,11 @@
 }
 
 .cardTitle {
-  width: auto;
-  height: auto;
+  max-width: auto;
+  max-height: auto;
+}
+
+.picture {
+  max-width: 15cm;
+  max-height: 15cm;
 }
