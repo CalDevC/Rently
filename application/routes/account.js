@@ -73,11 +73,11 @@ router.post('/register', (req, res) => {
     .catch((err) => {
       console.error('error connecting: ' + err.stack);
       //next(err);
-    })
+    });
 
 });
 
-router.post('/getEmailInfo', (req, res) => {
+router.post('/getInfo', (req, res) => {
   const userID = req.body.userID;
   console.log("HERE: ", userID);
   let query = `SELECT * FROM Register_User WHERE RegisteredUser_ID = ${userID}`;
@@ -92,5 +92,54 @@ router.post('/getEmailInfo', (req, res) => {
       res.redirect('/');
     });
 });
+
+router.post('/getInfoByName', (req, res) => {
+  const user = req.body.user;
+  let query = `SELECT * FROM Register_User WHERE RegisteredUser_ID = (SELECT RegisteredUser_ID FROM Register_User WHERE userName = '${user}')`;
+
+  db.query(query)
+    .then(([results, fields]) => {
+      console.log(results);
+      res.send(results[0]);
+    })
+    .catch((err) => {
+      console.error('error connecting: ' + err.stack);
+      res.redirect('/');
+    });
+});
+
+router.post('/profile', (req, res) => {
+  let username = req.body.username;
+  let email = req.body.email;
+  let password = req.body.password;
+  let dob = req.body.dob;
+  let address = req.body.address;
+  let zipCode = req.body.zipCode;
+  let id = req.body.id;
+
+  let query = `UPDATE Register_User SET userName = '${username}', email = '${email}', password = '${password}', dob = '${convertDate(dob)}', address = '${address}', zipCode = '${zipCode}' WHERE RegisteredUser_ID = '${id}';`;
+
+  //Make query for data
+  db.query(query)
+    .then(([results, fields]) => {
+      console.log(results);
+
+      //Send the data to the frontend
+      res.send({
+        status: 'ok',
+        msg: 'Successfully Saved'
+      });
+    })
+    .catch((err) => {
+      console.error('error connecting: ' + err.stack);
+    });
+});
+
+function convertDate(date) {
+  if (date) {
+    let parts = date.split('/');
+    return parts[2] + "-" + parts[0] + "-" + parts[1];
+  }
+}
 
 module.exports = router

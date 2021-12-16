@@ -57,7 +57,7 @@ class Categories extends Component {
             let subLinkList = div.props.subLinks;
             subLinkList[subLinkList.length] = (
               <div key={subLinkList.length - 1}>
-                <Link class={styles.bigLink}to={'Categories/' + desc}>{pieces[1]}</Link>
+                <Link className={styles.bigLink} to={'Categories/' + desc}>{pieces[1]}</Link>
                 <br />
               </div>
             );
