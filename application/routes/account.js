@@ -95,8 +95,7 @@ router.post('/getInfo', (req, res) => {
 
 router.post('/getInfoByName', (req, res) => {
   const user = req.body.user;
-  console.log("HERE: ", user);
-  let query = `SELECT * FROM Register_User WHERE RegisteredUser_ID = (SELECT RegisteredUser_ID FROM Register_User WHERE userName = ${user})`;
+  let query = `SELECT * FROM Register_User WHERE RegisteredUser_ID = (SELECT RegisteredUser_ID FROM Register_User WHERE userName = '${user}')`;
 
   db.query(query)
     .then(([results, fields]) => {
@@ -116,10 +115,9 @@ router.post('/profile', (req, res) => {
   let dob = req.body.dob;
   let address = req.body.address;
   let zipCode = req.body.zipCode;
-  console.log(password);
-  console.log(dob);
+  let id = req.body.id;
 
-  let query = `INSERT INTO Register_User (userName, email, salt, password, dob, address, zipCode) values ('${username}', '${email}', '', '${password}', '${dob}', '${address}', '${zipCode}');`;
+  let query = `UPDATE Register_User SET userName = '${username}', email = '${email}', password = '${password}', dob = '${convertDate(dob)}', address = '${address}', zipCode = '${zipCode}' WHERE RegisteredUser_ID = '${id}';`;
 
   //Make query for data
   db.query(query)
@@ -129,12 +127,19 @@ router.post('/profile', (req, res) => {
       //Send the data to the frontend
       res.send({
         status: 'ok',
-        msg: 'Successfully Register'
+        msg: 'Successfully Saved'
       });
     })
     .catch((err) => {
       console.error('error connecting: ' + err.stack);
     });
 });
+
+function convertDate(date) {
+  if (date) {
+    let parts = date.split('/');
+    return parts[2] + "-" + parts[0] + "-" + parts[1];
+  }
+}
 
 module.exports = router

@@ -73,7 +73,6 @@ class DisplayPage extends Component {
     if (date) {
       date = date.toString().split("T")[0].split("-");
       return date[1] + "/" + date[2] + "/" + date[0];
-      console.log(date);
     }
 
   }
