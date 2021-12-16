@@ -25,7 +25,7 @@ class PostPage extends Component {
       delivery: 0,
       description: null,
       startDate: null,
-      endDate: null
+      endDate: null,
     };
   }
 
@@ -47,7 +47,7 @@ class PostPage extends Component {
 
     await fetch('/api/posts/addPost', {
       method: 'POST',
-      body: formData
+      body: formData,
     })
       .then((response) => response.text())
       .then((res) => {
@@ -57,21 +57,23 @@ class PostPage extends Component {
       .catch((error) => {
         console.error('Error:', error);
       });
+    this.routeChange();
   }
 
   inputChangeHandler(event) {
     this.setState({
-      [event.target.id]: event.target.value
-    })
+      [event.target.id]: event.target.value,
+    });
   }
 
   fileSelected(event) {
     const file = event.target.files[0];
-    this.setState({ image: file })
+    this.setState({ image: file });
   }
 
   routeChange() {
-    let path = `/`;
+    window.alert('You posted the item');
+    let path = `/Categories`;
     this.props.history.push(path);
   }
 
@@ -80,19 +82,30 @@ class PostPage extends Component {
       <div>
         <h1 className={styles.create}>Create Your Listing Here.</h1>
         <form onSubmit={this.submitHandler}>
-
           <div className={styles.username}>
             <label htmlFor="Equipment">Equipment Name:</label>
-            <input type="text" id="equipment" onChange={this.inputChangeHandler} />
+            <input
+              type="text"
+              id="equipment"
+              onChange={this.inputChangeHandler}
+            />
           </div>
 
           <div className={styles.dropdown}>
-            <Dropdown className={styles.dropdown} ref={(node) => (this.categoryInputRef = node)} />
+            <Dropdown
+              className={styles.dropdown}
+              ref={(node) => (this.categoryInputRef = node)}
+            />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="Photo">Upload Photo:</label>
-            <input type="file" accept="image/*" id="image" onChange={this.fileSelected} />
+            <input
+              type="file"
+              accept="image/*"
+              id="image"
+              onChange={this.fileSelected}
+            />
           </div>
 
           <div className={styles.username}>
@@ -102,42 +115,74 @@ class PostPage extends Component {
 
           <div className={styles.username}>
             <label htmlFor="Deposit">Security Deposit $</label>
-            <input type="text" id="deposit" onChange={this.inputChangeHandler} />
+            <input
+              type="text"
+              id="deposit"
+              onChange={this.inputChangeHandler}
+            />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="Penalty">Penalty for damages $</label>
-            <input type="text" id="penalty" onChange={this.inputChangeHandler} />
+            <input
+              type="text"
+              id="penalty"
+              onChange={this.inputChangeHandler}
+            />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="Location">Pick-up Location:</label>
-            <input type="text" id="location" onChange={this.inputChangeHandler} />
+            <input
+              type="text"
+              id="location"
+              onChange={this.inputChangeHandler}
+            />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="Delivery">Offer Delivery?</label>
-            <input type="checkbox" id="delivery" onChange={this.inputChangeHandler} />
+            <input
+              type="checkbox"
+              id="delivery"
+              onChange={this.inputChangeHandler}
+            />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="Description">Description:</label>
-            <input type="text" id="description" onChange={this.inputChangeHandler} />
+            <input
+              type="text"
+              id="description"
+              onChange={this.inputChangeHandler}
+            />
           </div>
 
           <div className={styles.username}>
             <h4>Rental Availability</h4>
             <label htmlFor="start">Start Date:</label>
-            <input type="text" id="startDate" placeholder='mm/dd/yyyy' onChange={this.inputChangeHandler} />
+            <input
+              type="text"
+              id="startDate"
+              placeholder="mm/dd/yyyy"
+              onChange={this.inputChangeHandler}
+            />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="end">End Date:</label>
-            <input type="text" id="endDate" placeholder='mm/dd/yyyy' onChange={this.inputChangeHandler} />
+            <input
+              type="text"
+              id="endDate"
+              placeholder="mm/dd/yyyy"
+              onChange={this.inputChangeHandler}
+            />
           </div>
 
           <div className={styles.buttons}>
-            <button type="submit">Post</button>
+            <button type="submit" onClick={this.routeChange}>
+              Post
+            </button>
           </div>
         </form>
       </div>

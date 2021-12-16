@@ -61,7 +61,6 @@ class LoginPage extends Component {
       let path = `/Categories`;
       this.props.history.push(path);
     }
-
   }
 
   routeChange2() {
@@ -96,8 +95,8 @@ class LoginPage extends Component {
               ref={(node) => (this.passwordInputRef = node)}
             />
           </div>
-          <div className={stylees.username}>
-            <button >Log in</button>
+          <div className={styles.username}>
+            <button>Log in</button>
           </div>
           <div className={styles.username}>
             <button onClick={this.routeChange2}>Create An Account?</button>
