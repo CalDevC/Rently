@@ -1,4 +1,4 @@
-import styles from "../CSS/Card.module.css";
+import styles from '../CSS/Card.module.css';
 import { useHistory } from 'react-router-dom';
 
 function Card(props) {
@@ -6,10 +6,15 @@ function Card(props) {
   const postID = props.id;
   const imageUrl = props.imageUrl;
   return (
-
     <div className={styles.mainCard} id="cardId">
-      <div className="cardTitle">
-        {(imageUrl && imageUrl !== '') ? <img src={imageUrl} alt={imageUrl} /> : ''}
+      <div>
+        {imageUrl && imageUrl !== '' ? (
+          <p className={styles.cardTitle}>
+            <img src={imageUrl} alt={imageUrl} />
+          </p>
+        ) : (
+          ''
+        )}
         {props.title}
       </div>
       <div className="button">
@@ -18,8 +23,7 @@ function Card(props) {
         </button>
       </div>
     </div>
-  )
-
+  );
 }
 
 export default Card;
