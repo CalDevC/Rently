@@ -1,6 +1,6 @@
 import { React, Component } from 'react';
 import Card from './Card';
-import styles from '../CSS/Categoeries.module.css';
+import styles from '../CSS/Category.module.css';
 
 class Category extends Component {
   constructor() {
@@ -58,7 +58,7 @@ class Category extends Component {
     return (
       <div>
         <h1 className={styles.category}>Page Reached</h1>
-        {this.generatePostCards()}
+        <div className={styles.grid}>{this.generatePostCards()}</div>
       </div>
     );
   }
