@@ -53,11 +53,12 @@ class PostPage extends Component {
       .then((res) => {
         console.log('Response Received: ', res);
         this.setState({ status: res.status, msg: res.msg });
+        this.routeChange();
       })
       .catch((error) => {
         console.error('Error:', error);
       });
-    this.routeChange();
+
   }
 
   inputChangeHandler(event) {
@@ -130,11 +131,7 @@ class PostPage extends Component {
 
           <div className={styles.username}>
             <label htmlFor="Delivery">Offer Delivery?</label>
-            <input
-              type="checkbox"
-              id="delivery"
-              onChange={this.inputChangeHandler}
-            />
+            <input type="checkbox" id="delivery" onChange={this.inputChangeHandler} />
           </div>
 
           <div className={styles.username}>
@@ -154,7 +151,7 @@ class PostPage extends Component {
           </div>
 
           <div className={styles.buttons}>
-            <button type="submit" onClick={this.routeChange}>
+            <button type="submit">
               Post
             </button>
           </div>
