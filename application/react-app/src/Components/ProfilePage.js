@@ -8,7 +8,6 @@ class ProfilePage extends Component {
   constructor() {
     super();
     this.usernameInputRef = React.createRef();
-    this.passwordInputRef = React.createRef();
     this.nameInputRef = React.createRef();
     this.dobInputRef = React.createRef();
     this.emailInputRef = React.createRef();
@@ -70,7 +69,6 @@ class ProfilePage extends Component {
       body: JSON.stringify({
         //Send users new data
         username: this.usernameInputRef.value,
-        password: this.passwordInputRef.value,
         name: this.nameInputRef.value,
         email: this.emailInputRef.value,
         dob: this.dobInputRef.value,
@@ -108,11 +106,6 @@ class ProfilePage extends Component {
           <div className={styles.username}>
             <label htmlFor="Username">Username:</label>
             <input type="text" id="username" required defaultValue={this.state.userInfo.userName} ref={(node) => (this.usernameInputRef = node)} />
-          </div>
-
-          <div className={styles.username}>
-            <label htmlFor="Password">Password:</label>
-            <input type="password" id="password" required defaultValue={this.state.userInfo.password} ref={(node) => (this.passwordInputRef = node)} />
           </div>
 
           <div className={styles.username}>

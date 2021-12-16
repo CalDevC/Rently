@@ -119,13 +119,12 @@ router.post('/getInfoByName', (req, res) => {
 router.post('/profile', (req, res) => {
   let username = req.body.username;
   let email = req.body.email;
-  let password = req.body.password;
   let dob = req.body.dob;
   let address = req.body.address;
   let zipCode = req.body.zipCode;
   let id = req.body.id;
 
-  let query = `UPDATE Register_User SET userName = '${username}', email = '${email}', password = '${password}', dob = '${convertDate(dob)}', address = '${address}', zipCode = '${zipCode}' WHERE RegisteredUser_ID = '${id}';`;
+  let query = `UPDATE Register_User SET userName = '${username}', email = '${email}', dob = '${convertDate(dob)}', address = '${address}', zipCode = '${zipCode}' WHERE RegisteredUser_ID = '${id}';`;
 
   //Make query for data
   db.query(query)

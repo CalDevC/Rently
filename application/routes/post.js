@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../config/database');
 
-//FOr image uploading
+//For image uploading
 const multer = require('multer');
 const upload = multer({ dest: 'uploads' });
 const { uploadFile } = require('../s3');
