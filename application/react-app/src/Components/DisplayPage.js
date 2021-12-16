@@ -44,7 +44,7 @@ class DisplayPage extends Component {
     event.preventDefault();
     var userID = this.state.postInfo.RegisteredUser_ID;
 
-    fetch(`/api/account/getEmailInfo`, {
+    fetch(`/api/account/getInfo`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

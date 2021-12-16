@@ -83,7 +83,7 @@ class PostPage extends Component {
 
           <div className={styles.username}>
             <label htmlFor="Equipment">Equipment Name:</label>
-            <input type="text" id="equipment" onChange={this.inputChangeHandler} />
+            <input type="text" id="equipment" required onChange={this.inputChangeHandler} />
           </div>
 
           <div className={styles.username}>
@@ -91,17 +91,17 @@ class PostPage extends Component {
           </div>
 
           <div className={styles.username}>
-            <input type="file" accept="image/*" id="image" onChange={this.fileSelected} />
+            <input type="file" accept="image/*" id="image" required onChange={this.fileSelected} />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="Price">Rental Price $</label>
-            <input type="text" id="price" onChange={this.inputChangeHandler} />
+            <input type="text" id="price" required onChange={this.inputChangeHandler} />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="Deposit">Security Deposit $</label>
-            <input type="text" id="deposit" onChange={this.inputChangeHandler} />
+            <input type="text" id="deposit" required onChange={this.inputChangeHandler} />
           </div>
 
           <div className={styles.username}>
@@ -111,7 +111,7 @@ class PostPage extends Component {
 
           <div className={styles.username}>
             <label htmlFor="Location">Pick-up Location:</label>
-            <input type="text" id="location" onChange={this.inputChangeHandler} />
+            <input type="text" id="location" required onChange={this.inputChangeHandler} />
           </div>
 
           <div className={styles.username}>
@@ -121,18 +121,18 @@ class PostPage extends Component {
 
           <div className={styles.username}>
             <label htmlFor="Description">Description:</label>
-            <input type="text" id="description" onChange={this.inputChangeHandler} />
+            <input type="text" id="description" required onChange={this.inputChangeHandler} />
           </div>
 
           <div className={styles.username}>
             <h4>Rental Availability</h4>
             <label htmlFor="start">Start Date:</label>
-            <input type="text" id="startDate" placeholder='mm/dd/yyyy' onChange={this.inputChangeHandler} />
+            <input type="text" id="startDate" required placeholder='mm/dd/yyyy' onChange={this.inputChangeHandler} />
           </div>
 
           <div className={styles.username}>
             <label htmlFor="end">End Date:</label>
-            <input type="text" id="endDate" placeholder='mm/dd/yyyy' onChange={this.inputChangeHandler} />
+            <input type="text" id="endDate" required placeholder='mm/dd/yyyy' onChange={this.inputChangeHandler} />
           </div>
 
           <div>

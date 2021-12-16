@@ -73,11 +73,11 @@ router.post('/register', (req, res) => {
     .catch((err) => {
       console.error('error connecting: ' + err.stack);
       //next(err);
-    })
+    });
 
 });
 
-router.post('/getEmailInfo', (req, res) => {
+router.post('/getInfo', (req, res) => {
   const userID = req.body.userID;
   console.log("HERE: ", userID);
   let query = `SELECT * FROM Register_User WHERE RegisteredUser_ID = ${userID}`;
@@ -90,6 +90,34 @@ router.post('/getEmailInfo', (req, res) => {
     .catch((err) => {
       console.error('error connecting: ' + err.stack);
       res.redirect('/');
+    });
+});
+
+router.post('/profile', (req, res) => {
+  let username = req.body.username;
+  let email = req.body.email;
+  let password = req.body.password;
+  let dob = req.body.dob;
+  let address = req.body.address;
+  let zipCode = req.body.zipCode;
+  console.log(password);
+  console.log(dob);
+
+  let query = `INSERT INTO Register_User (userName, email, salt, password, dob, address, zipCode) values ('${username}', '${email}', '', '${password}', '${dob}', '${address}', '${zipCode}');`;
+
+  //Make query for data
+  db.query(query)
+    .then(([results, fields]) => {
+      console.log(results);
+
+      //Send the data to the frontend
+      res.send({
+        status: 'ok',
+        msg: 'Successfully Register'
+      });
+    })
+    .catch((err) => {
+      console.error('error connecting: ' + err.stack);
     });
 });
 

@@ -16,7 +16,17 @@ class ProfilePage extends Component {
         status: '',
         msg: '',
       },
+      userInfo: {}
     };
+  }
+
+  componentDidMount() {
+    fetch('/api/account/getInfo')
+      .then(res => res.json())
+      .then(jsonRes => this.setState({ userInfo: jsonRes }))
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }
 
   submitHandler(event) {
@@ -51,48 +61,27 @@ class ProfilePage extends Component {
           <h1 className={styles.profile}>Update Profile</h1>
         </div>
         <form onSubmit={this.submitHandler}>
+
           <div className={styles.username}>
             <label htmlFor="Username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              required
-              id="title"
-              ref={(node) => (this.usernameInputRef = node)}
-            />
+            <input type="text" id="username" required defaultValue={this.state.userInfo.username} ref={(node) => (this.usernameInputRef = node)} />
           </div>
+
           <div className={styles.username}>
             <label htmlFor="Password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              required
-              id="title"
-              ref={(node) => (this.passwordInputRef = node)}
-            />
+            <input type="password" id="password" required ref={(node) => (this.passwordInputRef = node)} />
           </div>
+
           <div className={styles.username}>
             <label htmlFor="Name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              required
-              id="title"
-              ref={(node) => (this.nameInputRef = node)}
-            />
+            <input type="text" id="name" required ref={(node) => (this.nameInputRef = node)} />
           </div>
+
           <div className={styles.username}>
             <label htmlFor="Email">Email:</label>
-            <input
-              type="text"
-              id="email"
-              required
-              id="title"
-              ref={(node) => (this.emailInputRef = node)}
-            />
+            <input type="text" id="email" required ref={(node) => (this.emailInputRef = node)} />
           </div>
-          <label htmlFor="Picture">Picture</label>
-          <div>{/* <img src="images/Member1.jpg" width={200} alt="" /> */}</div>
+
           <div className={styles.username}>
             <button>Save</button>
           </div>
