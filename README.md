@@ -1,4 +1,4 @@
-# csc648 Repository
+# Rently
 
 Our web app url: http://54.183.152.191
 
